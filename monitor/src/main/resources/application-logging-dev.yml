@@ -1,0 +1,7 @@
+#
+# 日志 测试配置
+logging:
+  # 日志等级
+  level:
+    # Web 日志等级
+    web: debug
