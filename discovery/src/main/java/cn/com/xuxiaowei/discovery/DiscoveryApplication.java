@@ -18,6 +18,7 @@ package cn.com.xuxiaowei.discovery;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.netflix.eureka.server.EurekaController;
 
 /**
  * 服务发现 程序执行入口
@@ -25,6 +26,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  * Spring Cloud 使用注解 {@link EnableEurekaServer} 的方式提供 Eureka 服务端
  *
  * @author xuxiaowei
+ * @see EurekaController
  * @since 0.0.1
  */
 @EnableEurekaServer
