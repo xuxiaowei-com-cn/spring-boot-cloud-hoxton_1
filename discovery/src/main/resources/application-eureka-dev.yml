@@ -1,0 +1,16 @@
+#
+# Eureka-开发配置
+eureka:
+  # 实例
+  instance:
+    # 主机
+    hostname: localhost
+  # 客户端
+  client:
+    # 指示此实例是否应在eureka服务器上注册其信息以供他人发现。
+    # 在某些情况下，您不希望发现实例，而只希望发现其他实例。
+    register-with-eureka: false
+    # 指示此客户端是否应从eureka服务器获取eureka注册表信息。
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
