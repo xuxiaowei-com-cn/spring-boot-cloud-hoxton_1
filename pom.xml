@@ -25,6 +25,7 @@
         <module>config</module>
         <module>monitor</module>
         <module>passport</module>
+        <module>ui</module>
     </modules>
 
     <dependencies>
