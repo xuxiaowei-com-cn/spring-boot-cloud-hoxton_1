@@ -44,7 +44,8 @@ public class TestRestController {
     @RequestMapping("/testMsg")
     public Map<String, Object> testMsg(HttpServletRequest request, HttpServletResponse response, String testMsg) {
         Map<String, Object> map = new HashMap<>(4);
-        map.put("msg", String.format("接收到参数：%s", testMsg));
+        map.put("code", "00000");
+        map.put("msg", String.format("Passport 接收到参数：%s", testMsg));
         return map;
     }
 
