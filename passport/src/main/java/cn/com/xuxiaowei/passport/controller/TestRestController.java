@@ -15,6 +15,7 @@
  */
 package cn.com.xuxiaowei.passport.controller;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,7 +43,7 @@ public class TestRestController {
      * @return 返回 测试结果
      */
     @RequestMapping("/testMsg")
-    public Map<String, Object> testMsg(HttpServletRequest request, HttpServletResponse response, String testMsg) {
+    public Map<String, Object> testMsg(HttpServletRequest request, HttpServletResponse response, @RequestBody String testMsg) {
         Map<String, Object> map = new HashMap<>(4);
         map.put("code", "00000");
         map.put("msg", String.format("Passport 接收到参数：%s", testMsg));
