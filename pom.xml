@@ -24,6 +24,7 @@
         <module>discovery</module>
         <module>config</module>
         <module>monitor</module>
+        <module>passport</module>
     </modules>
 
     <dependencies>
