@@ -18,6 +18,10 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <fastjson.version>1.2.75</fastjson.version>
+
     </properties>
 
     <modules>
@@ -34,7 +38,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.75</version>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <dependency>
