@@ -13,7 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>spring-boot-cloud-hoxton</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Demo project for Spring Boot Cloud Hoxton</description>
 
     <properties>
         <java.version>1.8</java.version>
