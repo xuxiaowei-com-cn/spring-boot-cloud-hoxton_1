@@ -19,6 +19,7 @@ import cn.com.xuxiaowei.ui.service.hystrix.TesstPassportHystrixService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -76,6 +77,20 @@ public class TestPassportRestController {
         Map<String, Object> map = tesstPassportHystrixService.testMsg(testMsg);
         map.put("UI Session ID", session.getId());
         return map;
+    }
+
+    /**
+     * 测试阻塞
+     *
+     * @param request  请求
+     * @param response 响应
+     * @param session  session
+     * @param mills    阻塞，毫秒
+     * @return 返回 测试阻塞 结果
+     */
+    @RequestMapping("/read-timeout")
+    public String readTimeout(HttpServletRequest request, HttpServletResponse response, HttpSession session, @RequestParam int mills) {
+        return tesstPassportHystrixService.readTimeout(mills);
     }
 
 }

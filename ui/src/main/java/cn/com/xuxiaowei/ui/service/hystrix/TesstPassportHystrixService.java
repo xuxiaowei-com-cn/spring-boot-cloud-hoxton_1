@@ -19,6 +19,7 @@ import cn.com.xuxiaowei.ui.service.TesstPassportService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,6 +62,27 @@ public class TesstPassportHystrixService {
         map.put("code", "A001");
         map.put("msg", "调用失败，Passport Service 故障");
         return map;
+    }
+
+    /**
+     * 测试阻塞
+     *
+     * @param mills 阻塞，毫秒
+     * @return 返回 测试阻塞 结果
+     */
+    @HystrixCommand(fallbackMethod = "readTimeoutFallback")
+    public String readTimeout(@RequestParam int mills) {
+        return tesstPassportService.readTimeout(mills);
+    }
+
+    /**
+     * 测试阻塞 异常数据
+     *
+     * @param mills 阻塞，毫秒
+     * @return 返回 异常 结果
+     */
+    public String readTimeoutFallback(@RequestParam int mills) {
+        return String.format("测试阻塞：%s ms 发生了熔断", mills);
     }
 
 }

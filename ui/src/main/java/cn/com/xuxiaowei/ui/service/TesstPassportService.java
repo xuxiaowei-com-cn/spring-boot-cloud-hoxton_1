@@ -17,6 +17,7 @@ package cn.com.xuxiaowei.ui.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
@@ -37,5 +38,14 @@ public interface TesstPassportService {
      */
     @RequestMapping("/test/passport/testMsg")
     Map<String, Object> testMsg(String testMsg);
+
+    /**
+     * 测试阻塞
+     *
+     * @param mills 阻塞，毫秒
+     * @return 返回 测试阻塞 结果
+     */
+    @RequestMapping("/test/passport/read-timeout")
+    String readTimeout(@RequestParam(value = "mills") int mills);
 
 }
