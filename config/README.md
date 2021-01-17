@@ -2,10 +2,10 @@
  
 ## dependencies
 
-- Spring Boot Config
+- Spring Cloud Config
     - Config Server
         - 提供 @EnableConfigServer 注解
 
-- Spring Boot Discovery
+- Spring Cloud Discovery
     - Eureka Discovery Client
         - 提供 @EnableEurekaClient 注解
