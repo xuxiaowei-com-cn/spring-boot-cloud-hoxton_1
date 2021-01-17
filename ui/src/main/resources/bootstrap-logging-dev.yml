@@ -3,5 +3,5 @@
 logging:
   # 日志等级
   level:
-    # Web 日志等级
-    web: debug
+    # Web 日志等级（web: debug 已失效，原因是日志量较大。如果需要看，可设置 org.springframework.web）
+    org.springframework.web: debug
