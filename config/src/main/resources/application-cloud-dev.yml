@@ -6,4 +6,4 @@ spring:
       server:
         # 配置服务器使用本地配置（默认为 git 配置）
         native:
-          search-locations: classpath:/config/
+          search-locations: classpath:/config-dev/
