@@ -49,12 +49,10 @@ public class TestRestController {
     @RequestMapping("/testMsg")
     public Map<String, Object> testMsg(HttpServletRequest request, HttpServletResponse response, HttpSession session,
                                        @RequestBody String testMsg) {
-
-        log.info("session id：{}", session.getId());
-
         Map<String, Object> map = new HashMap<>(4);
         map.put("code", "00000");
         map.put("msg", String.format("Passport 接收到参数：%s", testMsg));
+        map.put("Passport Session ID", session.getId());
         return map;
     }
 

@@ -56,13 +56,10 @@ public class TestPassportRestController {
      */
     @RequestMapping(value = "/testMsg")
     public Map<String, Object> testMsg(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-
-        log.info("session id：{}", session.getId());
-
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         String nowFormat = now.format(dateTimeFormatter);
-        return tesstPassportHystrixService.testMsg(nowFormat);
+        return testMsg(request, response, session, nowFormat);
     }
 
     /**
@@ -76,10 +73,9 @@ public class TestPassportRestController {
      */
     @RequestMapping(value = "/testMsg", params = {"testMsg"})
     public Map<String, Object> testMsg(HttpServletRequest request, HttpServletResponse response, HttpSession session, String testMsg) {
-
-        log.info("session id：{}", session.getId());
-
-        return tesstPassportHystrixService.testMsg(testMsg);
+        Map<String, Object> map = tesstPassportHystrixService.testMsg(testMsg);
+        map.put("UI Session ID", session.getId());
+        return map;
     }
 
 }
