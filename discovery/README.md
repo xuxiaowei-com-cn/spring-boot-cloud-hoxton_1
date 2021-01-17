@@ -4,3 +4,4 @@
 
 - Spring Boot Discovery
     - Eureka Server
+        - 提供 @EnableEurekaServer 注解
