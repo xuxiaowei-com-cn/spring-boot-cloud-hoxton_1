@@ -34,7 +34,7 @@ import java.util.Map;
  */
 @Slf4j
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/test/passport")
 public class TestRestController {
 
     /**

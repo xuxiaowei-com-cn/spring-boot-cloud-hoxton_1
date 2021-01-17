@@ -35,7 +35,7 @@ public interface TesstPassportService {
      * @param testMsg 测试参数，必填，否则调用失败
      * @return 返回 登录模块 测试结果
      */
-    @RequestMapping("/test/testMsg")
+    @RequestMapping("/test/passport/testMsg")
     Map<String, Object> testMsg(String testMsg);
 
 }
