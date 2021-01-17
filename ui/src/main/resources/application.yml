@@ -6,6 +6,7 @@ spring:
     # 激活
     active:
       - eureka-dev # Eureka 测试配置
+      - hystrix-dev # Hystrix 开发配置
       - logging-dev # 日志 测试配置
       - redis-dev # Redis 测试配置
       - server-dev # 服务器 测试配置
