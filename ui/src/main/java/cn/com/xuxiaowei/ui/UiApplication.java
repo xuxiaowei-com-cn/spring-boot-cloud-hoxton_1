@@ -25,6 +25,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * UI(Ribbon、Feign)(界面模块) 程序执行入口
  * <p>
+ * 通过 {@link EnableEurekaClient} 开启 Eureka 客户端
  * 通过 {@link EnableFeignClients} 开启 feign 客户端支持
  * 通过 {@link EnableCircuitBreaker} 开启 CircuitBreaker 的支持
  * 通过 {@link EnableZuulProxy} 开启网关代理的支持
