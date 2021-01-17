@@ -27,7 +27,7 @@ import org.springframework.cloud.netflix.eureka.server.EurekaController;
  *
  * @author xuxiaowei
  * @see EurekaController
- * @see <a href="https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/#spring-cloud-running-eureka-server">spring-cloud-running-eureka-server</a>
+ * @see <a href="https://docs.spring.io/spring-cloud-netflix/docs/2.2.6.RELEASE/reference/html/#spring-cloud-running-eureka-server">spring-cloud-running-eureka-server</a>
  * @since 0.0.1
  */
 @EnableEurekaServer
