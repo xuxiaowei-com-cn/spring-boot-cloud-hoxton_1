@@ -6,6 +6,7 @@ spring:
     # 激活
     active:
       - eureka-dev # Eureka-开发配置
+      - freemarker-dev # freemarker-开发配置
       - logging-dev # 日志-开发配置
       - server-dev # 服务器-开发配置
   application:

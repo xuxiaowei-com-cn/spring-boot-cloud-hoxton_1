@@ -1,0 +1,7 @@
+#
+# freemarker-开发配置
+spring:
+  freemarker:
+    # 参见：https://docs.spring.io/spring-cloud-netflix/docs/2.2.6.RELEASE/reference/html/#netflix-eureka-server-starter
+    template-loader-path: classpath:/templates/
+    prefer-file-system-access: false
