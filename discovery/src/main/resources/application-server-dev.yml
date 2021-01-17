@@ -2,4 +2,5 @@
 # 服务器-开发配置
 server:
   # 端口
+  # Eureka Server 默认端口 8761
   port: 10101
