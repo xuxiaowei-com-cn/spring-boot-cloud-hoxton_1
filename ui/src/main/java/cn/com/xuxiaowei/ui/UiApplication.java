@@ -32,6 +32,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  *
  * @author xuxiaowei
  * @see <a href="https://docs.spring.io/spring-cloud-netflix/docs/2.2.6.RELEASE/reference/html/#how-to-include-hystrix">how-to-include-hystrix</a>
+ * @see <a href="https://docs.spring.io/spring-cloud-netflix/docs/2.2.6.RELEASE/reference/html/#netflix-zuul-reverse-proxy">netflix-zuul-reverse-proxy</a>
  * @since 0.0.1
  */
 @EnableEurekaClient
