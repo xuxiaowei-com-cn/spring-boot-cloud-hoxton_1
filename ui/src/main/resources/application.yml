@@ -7,6 +7,7 @@ spring:
     active:
       - eureka-dev # Eureka 测试配置
       - logging-dev # 日志 测试配置
+      - redis-dev # Redis 测试配置
       - server-dev # 服务器 测试配置
   application:
     # 在 Eureka Server 注册的服务名
