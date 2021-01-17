@@ -1,5 +1,6 @@
 #
 # Eureka-开发配置
+# https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/#spring-cloud-eureka-server-standalone-mode
 eureka:
   # 实例
   instance:
