@@ -19,6 +19,7 @@
     </properties>
 
     <dependencies>
+        <!-- https://docs.spring.io/spring-cloud-netflix/docs/2.2.6.RELEASE/reference/html/#how-to-include-hystrix -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>

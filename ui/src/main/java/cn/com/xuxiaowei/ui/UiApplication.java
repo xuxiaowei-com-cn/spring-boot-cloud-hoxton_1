@@ -31,6 +31,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * 通过 {@link EnableZuulProxy} 开启网关代理的支持
  *
  * @author xuxiaowei
+ * @see <a href="https://docs.spring.io/spring-cloud-netflix/docs/2.2.6.RELEASE/reference/html/#how-to-include-hystrix">how-to-include-hystrix</a>
  * @since 0.0.1
  */
 @EnableEurekaClient
