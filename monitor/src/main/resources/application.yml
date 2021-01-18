@@ -5,6 +5,7 @@ spring:
   profiles:
     # 激活
     active:
+      - cloud-dev # Cloud 测试配置
       - eureka-dev # Eureka 测试配置
       - logging-dev # 日志 测试配置
       - server-dev # 服务器 测试配置
