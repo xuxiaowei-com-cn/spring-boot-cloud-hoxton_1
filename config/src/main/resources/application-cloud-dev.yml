@@ -7,3 +7,13 @@ spring:
         # 配置服务器使用本地配置（默认为 git 配置）
         native:
           search-locations: classpath:/config-dev/
+    loadbalancer:
+      ribbon:
+        # 防止出现安全警告
+        # 可设置本属性，或移除 spring-cloud-starter-netflix-ribbon（spring-cloud-starter-netflix-eureka-server 中引入了）
+        # You already have RibbonLoadBalancerClient on your classpath.
+        # It will be used by default.
+        # As Spring Cloud Ribbon is in maintenance mode.
+        # We recommend switching to BlockingLoadBalancerClient instead.
+        # In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+        enabled: false
