@@ -5,3 +5,5 @@ logging:
   level:
     # Web 日志等级
     web: debug
+    # Web 日志等级
+    org.springframework.web: debug
