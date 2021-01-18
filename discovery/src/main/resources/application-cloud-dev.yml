@@ -1,0 +1,9 @@
+#
+# Cloud-开发配置
+spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        # 防止出现安全警告
+        # 可设置本属性，移除 spring-cloud-starter-netflix-ribbon（spring-cloud-starter-netflix-eureka-server 中引入了）
+        enabled: false
