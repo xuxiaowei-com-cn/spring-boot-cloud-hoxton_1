@@ -8,9 +8,8 @@ eureka:
     hostname: localhost
   # 客户端
   client:
-    # eureka.client.register-with-eureka 与 eureka.client.fetch-registry 设置为 false，代表为 eureka server
-    # 指示此实例是否应在eureka服务器上注册其信息以供他人发现。
-    # 在某些情况下，您不希望发现实例，而只希望发现其他实例。
+    # eureka.client.register-with-eureka 与 eureka.client.fetch-registry 设置为 false，代表为 eureka server，
+    # 防止自己注册自己
     register-with-eureka: false
     # 指示此客户端是否应从eureka服务器获取eureka注册表信息。
     fetch-registry: false
