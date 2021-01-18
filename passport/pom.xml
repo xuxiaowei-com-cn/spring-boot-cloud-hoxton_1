@@ -39,6 +39,13 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!-- mybatis 配置 -->
+        <dependency>
+            <groupId>cn.com.xuxiaowei</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
