@@ -68,13 +68,10 @@
 
     <build>
         <plugins>
-            <!-- 删除作为 Spring Boot 打包（继承于父项目，作为 Maven jar 打包） -->
-            <!--
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            -->
         </plugins>
     </build>
 
