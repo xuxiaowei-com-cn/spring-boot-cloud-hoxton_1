@@ -13,21 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.com.xuxiaowei.passport.configuration;
+package cn.com.xuxiaowei.redis;
 
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 开启 Redis Session 缓存
+ * Redis、Session 配置 程序执行入口
  *
  * @author xuxiaowei
  * @since 0.0.1
  */
-@Configuration
-@EnableCaching
-@EnableRedisHttpSession
-public class RedisCacheConfiguration {
+@SpringBootApplication
+public class RedisApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(RedisApplication.class, args);
+    }
 
 }

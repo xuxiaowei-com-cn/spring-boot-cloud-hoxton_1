@@ -32,6 +32,13 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
+        <!-- Redis、Session 依赖于配置 -->
+        <dependency>
+            <groupId>cn.com.xuxiaowei</groupId>
+            <artifactId>redis</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
     <build>
