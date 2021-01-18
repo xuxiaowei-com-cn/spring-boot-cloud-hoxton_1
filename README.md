@@ -1,6 +1,20 @@
 # spring-boot-cloud-hoxton
- 
+
+## 模块
+
+- discovery
+    - 服务发现 Eureka Server
+- config
+    - 配置 Config Server
+- monitor
+    - 监控 DashBoard
+- ui
+    - 界面模块 Ribbon、Feign
+- passport
+    - 登录 服务模块
+
 ## 文档
+
 - [Spring Cloud](https://spring.io/projects/spring-cloud)
     - [Spring Cloud Config](https://spring.io/projects/spring-cloud-config)
         - [Spring Cloud Config Current](https://docs.spring.io/spring-cloud-config/docs/2.2.6.RELEASE/reference/html/)
@@ -8,6 +22,7 @@
         - [Spring Cloud Netflix Current](https://docs.spring.io/spring-cloud-netflix/docs/2.2.6.RELEASE/reference/html/)
 
 ## 说明
+
 - Archaius
 - Eureka
 - Feign
