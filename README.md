@@ -12,6 +12,8 @@
     - 界面模块 Ribbon、Feign
 - passport
     - 登录 服务模块
+- redis
+    - Redis/Session 配置
 
 ## 文档
 
