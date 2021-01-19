@@ -78,7 +78,7 @@ public class MyBatisPlusGenerator {
      * @return 返回 XML 文件的路径
      */
     public String getMapper() {
-        return main + "/resources/mapper/";
+        return main + "/resources/mapper/" + subproject + "/";
     }
 
     /**
@@ -120,6 +120,11 @@ public class MyBatisPlusGenerator {
      * 数据库序号
      */
     private int datasourceNum;
+
+    /**
+     * 子项目名
+     */
+    private String subproject;
 
     /**
      * SQLServer 逆向工程使用 3.2.0 Maven
@@ -332,9 +337,11 @@ public class MyBatisPlusGenerator {
         // java8 新的时间类型
         globalConfig.setDateType(DateType.TIME_PACK);
 
-        String subproject = scanner(String.format("子项目名(已默认前缀：%s)", parent));
+        subproject = scanner(String.format("子项目名(已默认前缀：%s)", parent));
 
         setMain(subproject);
+
+        setParent(parent + "." + subproject);
 
         // 设置生成文件的输出目录
         globalConfig.setOutputDir(getOutputDir());
