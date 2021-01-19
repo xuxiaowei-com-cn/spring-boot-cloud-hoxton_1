@@ -1,7 +1,0 @@
-#
-# Spring 配置
-spring:
-  profiles:
-    active:
-      - datasource-dev
-      - mybatis-plus-dev
