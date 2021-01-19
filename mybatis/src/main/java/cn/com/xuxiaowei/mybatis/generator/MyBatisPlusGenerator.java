@@ -270,6 +270,9 @@ public class MyBatisPlusGenerator {
         // 设置 策略配置项
         StrategyConfig strategyConfig = getStrategyConfig(packageConfig);
 
+        // @Accessors(chain = true)
+        strategyConfig.setChainModel(true);
+
         // 数据库表配置
         autoGenerator.setStrategy(strategyConfig);
 
@@ -439,6 +442,7 @@ public class MyBatisPlusGenerator {
         // 是否生成实体时，生成字段注解
         strategyConfig.setEntityTableFieldAnnotationEnable(true);
 
+        // 逻辑删除属性名称
         strategyConfig.setLogicDeleteFieldName(logicDeleteFieldName);
 
         // 自定义继承的Controller类全称，带包名
