@@ -4,3 +4,15 @@ seata:
   # 关闭自动代理
   # https://dynamic-datasource.com/guide/tx/Seata.html#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9
   enable-auto-data-source-proxy: false
+  enabled: true
+  application-id: applicationName
+  tx-service-group: my_test_tx_group
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default  #key与上面的tx-service-group的值对应
+    grouplist:
+      default: localhost:8091 #seata-server地址仅file注册中心需要
+  config:
+    type: file
+  registry:
+    type: file
