@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.com.xuxiaowei.ui.controller;
+package cn.com.xuxiaowei.ui.test.controller;
 
-import cn.com.xuxiaowei.ui.service.hystrix.TesstPassportHystrixService;
+import cn.com.xuxiaowei.ui.test.entity.Passport;
+import cn.com.xuxiaowei.ui.test.service.hystrix.PassportHystrixService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,8 +27,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 /**
@@ -38,45 +38,28 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/test/passport")
-public class TestPassportRestController {
+public class PassportRestController {
 
-    private TesstPassportHystrixService tesstPassportHystrixService;
+    private PassportHystrixService passportHystrixService;
 
     @Autowired
-    public void setTesstPassportHystrixService(TesstPassportHystrixService tesstPassportHystrixService) {
-        this.tesstPassportHystrixService = tesstPassportHystrixService;
+    public void setPassportHystrixService(PassportHystrixService passportHystrixService) {
+        this.passportHystrixService = passportHystrixService;
     }
 
     /**
-     * 测试 登录模块 接口
+     * 测试 登录模块 参数接收、保存数据 接口
      *
      * @param request  请求
      * @param response 响应
      * @param session  session
+     * @param passport 登录模块测试表，必填，否则调用失败
      * @return 返回 测试 登录模块 结果
      */
-    @RequestMapping(value = "/testMsg")
-    public Map<String, Object> testMsg(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        String nowFormat = now.format(dateTimeFormatter);
-        return testMsg(request, response, session, nowFormat);
-    }
-
-    /**
-     * 测试 登录模块 参数接收
-     *
-     * @param request  请求
-     * @param response 响应
-     * @param session  session
-     * @param testMsg  测试参数，必填
-     * @return 返回 测试 登录模块 结果
-     */
-    @RequestMapping(value = "/testMsg", params = {"testMsg"})
-    public Map<String, Object> testMsg(HttpServletRequest request, HttpServletResponse response, HttpSession session, String testMsg) {
-        Map<String, Object> map = tesstPassportHystrixService.testMsg(testMsg);
-        map.put("UI Session ID", session.getId());
-        return map;
+    @RequestMapping(value = "/save")
+    public Map<String, Object> save(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+                                    @RequestBody Passport passport) {
+        return passportHystrixService.save(passport);
     }
 
     /**
@@ -90,7 +73,7 @@ public class TestPassportRestController {
      */
     @RequestMapping("/read-timeout")
     public String readTimeout(HttpServletRequest request, HttpServletResponse response, HttpSession session, @RequestParam int mills) {
-        return tesstPassportHystrixService.readTimeout(mills);
+        return passportHystrixService.readTimeout(mills);
     }
 
 }

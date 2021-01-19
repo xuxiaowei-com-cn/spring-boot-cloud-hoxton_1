@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.com.xuxiaowei.ui.service.hystrix;
+package cn.com.xuxiaowei.ui.test.service.hystrix;
 
-import cn.com.xuxiaowei.ui.service.TesstPassportService;
+import cn.com.xuxiaowei.ui.test.entity.Passport;
+import cn.com.xuxiaowei.ui.test.service.PassportService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,36 +32,39 @@ import java.util.Map;
  * @since 0.0.1
  */
 @Service
-public class TesstPassportHystrixService {
+public class PassportHystrixService {
 
-    private TesstPassportService tesstPassportService;
+    private PassportService passportService;
 
     @Autowired
-    public void setTesstPassportService(TesstPassportService tesstPassportService) {
-        this.tesstPassportService = tesstPassportService;
+    public void setPassportService(PassportService passportService) {
+        this.passportService = passportService;
     }
 
     /**
-     * 测试 登录模块 参数接收 服务实现
+     * 测试 登录模块 参数接收、保存数据 服务实现
      *
-     * @param testMsg 测试参数，必填，否则调用失败
+     * @param passport 登录模块测试表，必填，否则调用失败
      * @return 返回 测试 登录模块 结果
      */
-    @HystrixCommand(fallbackMethod = "testMsgFallback")
-    public Map<String, Object> testMsg(String testMsg) {
-        return tesstPassportService.testMsg(testMsg);
+    @HystrixCommand(fallbackMethod = "saveFallback")
+    public Map<String, Object> save(Passport passport) {
+        return passportService.save(passport);
     }
 
     /**
-     * 测试 登录模块 参数接收 异常数据
+     * 测试 登录模块 参数接收、保存数据 异常数据
      *
-     * @param testMsg 测试参数
+     * @param passport 登录模块测试表
      * @return 返回 异常 结果
      */
-    public Map<String, Object> testMsgFallback(String testMsg) {
+    public Map<String, Object> saveFallback(Passport passport) {
         Map<String, Object> map = new HashMap<>(4);
+        Map<String, Object> data = new HashMap<>(4);
+        map.put("data", data);
         map.put("code", "A001");
         map.put("msg", "调用失败，Passport Service 故障");
+        data.put("passport", passport);
         return map;
     }
 
@@ -72,7 +76,7 @@ public class TesstPassportHystrixService {
      */
     @HystrixCommand(fallbackMethod = "readTimeoutFallback")
     public String readTimeout(@RequestParam int mills) {
-        return tesstPassportService.readTimeout(mills);
+        return passportService.readTimeout(mills);
     }
 
     /**

@@ -13,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.com.xuxiaowei.ui.service;
+package cn.com.xuxiaowei.ui.test.service;
 
+import cn.com.xuxiaowei.ui.test.entity.Passport;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,16 +30,16 @@ import java.util.Map;
  * @since 0.0.1
  */
 @FeignClient("passport")
-public interface TesstPassportService {
+public interface PassportService {
 
     /**
-     * 测试 登录模块 参数接收
+     * 测试 登录模块 参数接收、保存数据
      *
-     * @param testMsg 测试参数，必填，否则调用失败
+     * @param passport 登录模块测试表，必填，否则调用失败
      * @return 返回 登录模块 测试结果
      */
-    @RequestMapping("/test/passport/testMsg")
-    Map<String, Object> testMsg(String testMsg);
+    @RequestMapping("/test/passport/save")
+    Map<String, Object> save(@RequestBody Passport passport);
 
     /**
      * 测试阻塞
