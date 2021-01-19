@@ -1,6 +1,6 @@
-package cn.com.xuxiaowei.www.mapper;
+package cn.com.xuxiaowei.www.test.mapper;
 
-import cn.com.xuxiaowei.www.entity.TestWww;
+import cn.com.xuxiaowei.www.test.entity.Www;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author 徐晓伟
  * @since 2021-01-19
  */
-public interface TestWwwMapper extends BaseMapper<TestWww> {
+public interface WwwMapper extends BaseMapper<Www> {
 
 }

@@ -1,4 +1,4 @@
-package cn.com.xuxiaowei.www.controller;
+package cn.com.xuxiaowei.www.test.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-01-19
  */
 @RestController
-@RequestMapping("//test-www")
-public class TestWwwRestController {
+@RequestMapping("/test/www")
+public class WwwRestController {
 
 }
 

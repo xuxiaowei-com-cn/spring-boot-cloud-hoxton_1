@@ -1,4 +1,4 @@
-package cn.com.xuxiaowei.www.entity;
+package cn.com.xuxiaowei.www.test.entity;
 
 import cn.com.xuxiaowei.mybatis.entity.Entity;
 import com.baomidou.mybatisplus.annotation.*;
@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TableName("test_www")
-public class TestWww extends Entity {
+public class Www extends Entity {
 
     private static final long serialVersionUID = 1L;
 
