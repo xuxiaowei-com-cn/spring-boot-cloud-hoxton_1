@@ -11,6 +11,8 @@ spring:
     # @DS("dsName")	  dsName可以为组名也可以为具体某个库的名称
     # 可以注解在方法上,可以注解在service实现或mapper接口方法上。
     dynamic:
+      # 性能分析
+      p6spy: true
       # 设置默认的数据源或者数据源组,默认值即为master,如果你主从默认下主库的名称就是master可不定义此项。
       primary: master
       # 开启 seata 代理，开启后默认每个数据源都代理，如果某个不需要代理可单独关闭
