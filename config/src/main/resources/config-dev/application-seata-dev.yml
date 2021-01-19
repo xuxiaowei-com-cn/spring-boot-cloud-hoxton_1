@@ -1,0 +1,6 @@
+#
+# seata-开发配置（供服务读取）
+seata:
+  # 关闭自动代理
+  # https://dynamic-datasource.com/guide/tx/Seata.html#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9
+  enable-auto-data-source-proxy: false
