@@ -1,5 +1,5 @@
 #
-# Eureka 测试配置
+# Eureka-开发配置
 eureka:
   # 实例
   instance:

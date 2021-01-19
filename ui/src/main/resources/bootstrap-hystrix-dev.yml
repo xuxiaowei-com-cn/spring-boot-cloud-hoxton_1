@@ -1,5 +1,5 @@
 #
-# Hystrix 开发配置
+# Hystrix-开发配置
 hystrix:
   command:
     default:

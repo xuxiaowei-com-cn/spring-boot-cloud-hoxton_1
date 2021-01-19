@@ -1,5 +1,5 @@
 #
-# Cloud 测试配置
+# Cloud-开发配置
 spring:
   cloud:
     config:

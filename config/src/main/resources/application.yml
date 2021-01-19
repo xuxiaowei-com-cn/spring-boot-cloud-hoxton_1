@@ -1,15 +1,15 @@
 #
-# 服务器配置
+# Spring 配置
 spring:
   # 配置文件
   profiles:
     # 激活
     active:
       - native # 配置服务器使用本地配置（默认为 git 配置）
-      - cloud-dev # Cloud 开发配置
-      - eureka-dev # Eureka 测试配置
-      - logging-dev # 日志 测试配置
-      - server-dev # 服务器 测试配置
+      - cloud-dev # Cloud-开发配置
+      - eureka-dev # Eureka-开发配置
+      - logging-dev # 日志-开发配置
+      - server-dev # 服务器-开发配置
   application:
     # 在 Eureka Server 注册的服务名
     name: config
