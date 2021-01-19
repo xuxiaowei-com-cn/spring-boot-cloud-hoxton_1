@@ -17,27 +17,19 @@ package cn.com.xuxiaowei.passport.service.impl;
 
 import cn.com.xuxiaowei.passport.entity.TestPassport;
 import cn.com.xuxiaowei.passport.mapper.TestPassportMapper;
-import cn.com.xuxiaowei.passport.service.TestPassportService;
+import cn.com.xuxiaowei.passport.service.ITestPassportService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import java.util.List;
-
 /**
- * 测试登录模块 服务 接口 实现类
+ * <p>
+ * 登录模块测试表 服务实现类
+ * </p>
  *
- * @author xuxiaowei
- * @since 0.0.1
+ * @author 徐晓伟
+ * @since 2021-01-19
  */
 @Service
-public class TestPassportServiceImpl implements TestPassportService {
-
-    @Resource
-    private TestPassportMapper testPassportMapper;
-
-    @Override
-    public List<TestPassport> list() {
-        return testPassportMapper.list();
-    }
+public class TestPassportServiceImpl extends ServiceImpl<TestPassportMapper, TestPassport> implements ITestPassportService {
 
 }

@@ -16,7 +16,7 @@
 package cn.com.xuxiaowei.passport.controller;
 
 import cn.com.xuxiaowei.passport.entity.TestPassport;
-import cn.com.xuxiaowei.passport.service.TestPassportService;
+import cn.com.xuxiaowei.passport.service.ITestPassportService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,10 +42,10 @@ import java.util.Map;
 @RequestMapping("/test/passport")
 public class TestPassportRestController {
 
-    private TestPassportService testPassportService;
+    private ITestPassportService testPassportService;
 
     @Autowired
-    public void setTestPassportService(TestPassportService testPassportService) {
+    public void setTestPassportService(ITestPassportService testPassportService) {
         this.testPassportService = testPassportService;
     }
 

@@ -16,22 +16,16 @@
 package cn.com.xuxiaowei.passport.mapper;
 
 import cn.com.xuxiaowei.passport.entity.TestPassport;
-
-import java.util.List;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
- * 测试登录模块 Mapper 接口
+ * <p>
+ * 登录模块测试表 Mapper 接口
+ * </p>
  *
- * @author xuxiaowei
- * @since 0.0.1
+ * @author 徐晓伟
+ * @since 2021-01-19
  */
-public interface TestPassportMapper {
-
-    /**
-     * 获取所有数据
-     *
-     * @return 返回 所有数据
-     */
-    List<TestPassport> list();
+public interface TestPassportMapper extends BaseMapper<TestPassport> {
 
 }
