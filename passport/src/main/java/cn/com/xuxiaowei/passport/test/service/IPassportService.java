@@ -1,6 +1,6 @@
-package cn.com.xuxiaowei.passport.service;
+package cn.com.xuxiaowei.passport.test.service;
 
-import cn.com.xuxiaowei.passport.entity.TestPassport;
+import cn.com.xuxiaowei.passport.test.entity.Passport;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author 徐晓伟
  * @since 2021-01-19
  */
-public interface ITestPassportService extends IService<TestPassport> {
+public interface IPassportService extends IService<Passport> {
 
 }
