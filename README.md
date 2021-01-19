@@ -23,7 +23,9 @@
     - [Spring Cloud Netflix](https://spring.io/projects/spring-cloud-netflix)
         - [Spring Cloud Netflix Current](https://docs.spring.io/spring-cloud-netflix/docs/2.2.6.RELEASE/reference/html/)
 
-- [seata](https://github.com/seata/seata)
+- seata
+- [文档](https://seata.io/zh-cn)
+- [github](https://github.com/seata/seata)
 
 ## 说明
 
