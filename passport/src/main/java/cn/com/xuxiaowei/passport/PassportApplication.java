@@ -18,6 +18,7 @@ package cn.com.xuxiaowei.passport;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * 登录 程序执行入口
@@ -27,6 +28,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @EnableEurekaClient
 @SpringBootApplication
+@ComponentScan(value = {"cn.com.xuxiaowei.passport", "cn.com.xuxiaowei.mybatis"})
 public class PassportApplication {
 
     public static void main(String[] args) {
