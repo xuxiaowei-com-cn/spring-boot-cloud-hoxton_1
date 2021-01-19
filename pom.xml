@@ -51,6 +51,7 @@
         <module>ui</module>
         <module>redis</module>
         <module>mybatis</module>
+        <module>www</module>
     </modules>
 
     <dependencies>
