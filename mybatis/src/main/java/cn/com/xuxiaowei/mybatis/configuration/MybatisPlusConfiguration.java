@@ -34,7 +34,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@MapperScan("cn.com.xuxiaowei.*.mapper.**")
+@MapperScan("cn.com.xuxiaowei.*.*.mapper.**")
 public class MybatisPlusConfiguration {
 
     /**
