@@ -78,7 +78,7 @@ public class MyBatisPlusGenerator {
      * @return 返回 XML 文件的路径
      */
     public String getMapper() {
-        return main + "/resources/mapper/" + subproject + "/";
+        return main + "/resources/mapper/" + subproject + "/" + moduleName + "/";
     }
 
     /**
@@ -320,6 +320,12 @@ public class MyBatisPlusGenerator {
     private PackageConfig getPackageConfig() {
 
         PackageConfig packageConfig = new PackageConfig();
+
+        // 模块名
+        moduleName = scanner("生成模块名");
+
+        // 模块名
+        packageConfig.setModuleName(moduleName);
 
         // 设置 父包名
         packageConfig.setParent(parent);
