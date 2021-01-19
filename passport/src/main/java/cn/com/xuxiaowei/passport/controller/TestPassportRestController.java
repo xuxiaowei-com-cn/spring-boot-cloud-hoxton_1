@@ -15,7 +15,10 @@
  */
 package cn.com.xuxiaowei.passport.controller;
 
+import cn.com.xuxiaowei.passport.entity.TestPassport;
+import cn.com.xuxiaowei.passport.service.TestPassportService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,7 +40,14 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/test/passport")
-public class TestRestController {
+public class TestPassportRestController {
+
+    private TestPassportService testPassportService;
+
+    @Autowired
+    public void setTestPassportService(TestPassportService testPassportService) {
+        this.testPassportService = testPassportService;
+    }
 
     /**
      * 测试 参数接收
@@ -75,6 +86,26 @@ public class TestRestController {
             e.printStackTrace();
         }
         return "Passport 服务-测试阻塞完成";
+    }
+
+    /**
+     * 查询数据
+     *
+     * @param request  请求
+     * @param response 响应
+     * @param session  Session
+     * @return 返回 查询数据结果
+     */
+    @RequestMapping("/list")
+    public Map<String, Object> list(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+        List<TestPassport> testPassportList = testPassportService.list();
+        Map<String, Object> map = new HashMap<>(4);
+        Map<String, Object> data = new HashMap<>(4);
+        map.put("data", data);
+        map.put("code", "00000");
+        map.put("msg", "查询成功");
+        data.put("testPassportList", testPassportList);
+        return map;
     }
 
 }

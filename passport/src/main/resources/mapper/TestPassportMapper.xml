@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.xuxiaowei.passport.mapper.TestPassportMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.com.xuxiaowei.passport.entity.TestPassport">
+        <id column="id" property="id" />
+        <result column="msg" property="msg" />
+    </resultMap>
+
+    <!-- 获取所有数据 -->
+    <select id="list" resultType="cn.com.xuxiaowei.passport.entity.TestPassport">
+        select * from test_passport
+    </select>
+
+</mapper>
