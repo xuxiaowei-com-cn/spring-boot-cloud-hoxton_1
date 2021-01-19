@@ -1,9 +1,9 @@
 package cn.com.xuxiaowei.ui.test.entity;
 
-import cn.com.xuxiaowei.mybatis.entity.Entity;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -14,9 +14,8 @@ import lombok.experimental.Accessors;
  * @since 2021-01-19
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-public class Passport extends Entity {
+public class Passport implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
