@@ -2,7 +2,9 @@ package cn.com.xuxiaowei.ui.configuration;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -16,6 +18,7 @@ import java.util.Enumeration;
  * @author xuxiaowei
  * @since 0.0.1
  */
+@Slf4j
 @Configuration
 public class FeignClientsConfigurationCustom implements RequestInterceptor {
 
@@ -34,9 +37,9 @@ public class FeignClientsConfigurationCustom implements RequestInterceptor {
         if (headerNames != null) {
             while (headerNames.hasMoreElements()) {
                 String headerName = headerNames.nextElement();
-                Enumeration<String> values = request.getHeaders(headerName);
-                while (values.hasMoreElements()) {
-                    String headerValue = values.nextElement();
+                String headerValue = request.getHeader(headerName);
+                // 过滤 Content-Length，防止接收不到响应
+                if (!HttpHeaders.CONTENT_LENGTH.equalsIgnoreCase(headerName)) {
                     template.header(headerName, headerValue);
                 }
             }
