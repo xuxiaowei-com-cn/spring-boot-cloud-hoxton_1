@@ -28,7 +28,9 @@ public class WwwServiceImpl extends ServiceImpl<WwwMapper, Www> implements IWwwS
     @Override
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public boolean save(Www entity) {
-        return super.save(entity);
+        boolean save = super.save(entity);
+        int i = 1 / entity.getWwwNum();
+        return save;
     }
 
 }

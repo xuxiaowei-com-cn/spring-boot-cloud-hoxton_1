@@ -28,7 +28,9 @@ public class PassportServiceImpl extends ServiceImpl<PassportMapper, Passport> i
     @Override
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public boolean save(Passport entity) {
-        return super.save(entity);
+        boolean save = super.save(entity);
+        int i = 1 / entity.getPassportNum();
+        return save;
     }
 
 }
