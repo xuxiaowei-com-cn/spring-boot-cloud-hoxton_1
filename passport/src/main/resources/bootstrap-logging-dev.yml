@@ -5,3 +5,4 @@ logging:
   level:
     # Web 日志等级（web: debug 已失效，原因是使用了配置服务，日志量较大。如果需要看，可设置 org.springframework.web）
     org.springframework.web: debug
+    io.seata: debug
