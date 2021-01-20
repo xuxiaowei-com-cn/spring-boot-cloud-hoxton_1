@@ -20,7 +20,7 @@ import java.util.Enumeration;
  */
 @Slf4j
 @Configuration
-public class FeignClientsConfigurationCustom implements RequestInterceptor {
+public class RequestInterceptorHeaderConfiguration implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate template) {
