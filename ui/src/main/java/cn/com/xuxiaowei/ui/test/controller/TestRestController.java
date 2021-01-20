@@ -18,6 +18,7 @@ package cn.com.xuxiaowei.ui.test.controller;
 import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
 import cn.com.xuxiaowei.ui.test.service.hystrix.PassportHystrixService;
 import cn.com.xuxiaowei.ui.test.service.hystrix.WwwHystrixService;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -64,6 +65,7 @@ public class TestRestController {
      * @return 返回 测试 分布式事务 seata 结果
      */
     @Transactional
+    @GlobalTransactional
     @RequestMapping(value = "/seata/save")
     public Map<String, Object> seataSave(HttpServletRequest request, HttpServletResponse response, HttpSession session,
                                          @RequestBody WwwPassport wwwPassport) {
