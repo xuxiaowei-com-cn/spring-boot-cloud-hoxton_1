@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author 徐晓伟
- * @since 2021-01-19
+ * @since 2021-01-20
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -28,18 +28,26 @@ public class Passport extends Entity {
     /**
      * 登录模块测试表主键
      */
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "passport_id", type = IdType.AUTO)
+    private Long passportId;
 
     /**
      * 消息
      */
-    @TableField("msg")
-    private String msg;
+    @TableField("passport_msg")
+    private String passportMsg;
+
+    /**
+     * 数量
+     */
+    @TableField("passport_num")
+    private Integer passportNum;
 
 
-    public static final String ID = "id";
+    public static final String PASSPORT_ID = "passport_id";
 
-    public static final String MSG = "msg";
+    public static final String PASSPORT_MSG = "passport_msg";
+
+    public static final String PASSPORT_NUM = "passport_num";
 
 }
