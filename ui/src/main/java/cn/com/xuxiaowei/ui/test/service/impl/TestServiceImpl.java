@@ -15,8 +15,11 @@
  */
 package cn.com.xuxiaowei.ui.test.service.impl;
 
+import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
 import cn.com.xuxiaowei.ui.test.service.ITestService;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 /**
  * 测试接口 实现类
@@ -27,5 +30,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestServiceImpl implements ITestService {
 
+    /**
+     * 测试 分布式事务 seata
+     *
+     * @param wwwPassport 网站模块测试表
+     * @return 返回 分布式事务 seata 结果
+     */
+    @Override
+    public Map<String, Object> seataSave(WwwPassport wwwPassport) {
+        return null;
+    }
 
 }

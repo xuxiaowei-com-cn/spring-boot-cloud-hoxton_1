@@ -15,6 +15,10 @@
  */
 package cn.com.xuxiaowei.ui.test.service;
 
+import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
+
+import java.util.Map;
+
 /**
  * 测试接口
  *
@@ -23,5 +27,12 @@ package cn.com.xuxiaowei.ui.test.service;
  */
 public interface ITestService {
 
+    /**
+     * 测试 分布式事务 seata
+     *
+     * @param wwwPassport 网站模块测试表
+     * @return 返回 分布式事务 seata 结果
+     */
+    Map<String, Object> seataSave(WwwPassport wwwPassport);
 
 }
