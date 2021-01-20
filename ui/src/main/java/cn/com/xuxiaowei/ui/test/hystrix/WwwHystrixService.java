@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.com.xuxiaowei.ui.test.service.hystrix;
+package cn.com.xuxiaowei.ui.test.hystrix;
 
 import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
 import cn.com.xuxiaowei.ui.test.exception.TestWwwException;
