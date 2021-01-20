@@ -15,7 +15,7 @@
  */
 package cn.com.xuxiaowei.ui.test.controller;
 
-import cn.com.xuxiaowei.ui.test.entity.Passport;
+import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
 import cn.com.xuxiaowei.ui.test.service.hystrix.PassportHystrixService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,16 +50,16 @@ public class PassportRestController {
     /**
      * 测试 登录模块 参数接收、保存数据 接口
      *
-     * @param request  请求
-     * @param response 响应
-     * @param session  session
-     * @param passport 登录模块测试表，必填，否则调用失败
+     * @param request     请求
+     * @param response    响应
+     * @param session     session
+     * @param wwwPassport 登录模块测试表，必填，否则调用失败
      * @return 返回 测试 登录模块 结果
      */
     @RequestMapping(value = "/save")
     public Map<String, Object> save(HttpServletRequest request, HttpServletResponse response, HttpSession session,
-                                    @RequestBody Passport passport) {
-        return passportHystrixService.save(passport);
+                                    @RequestBody WwwPassport wwwPassport) {
+        return passportHystrixService.save(wwwPassport);
     }
 
     /**

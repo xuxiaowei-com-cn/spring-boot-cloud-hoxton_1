@@ -15,7 +15,7 @@
  */
 package cn.com.xuxiaowei.ui.test.service.hystrix;
 
-import cn.com.xuxiaowei.ui.test.entity.Passport;
+import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
 import cn.com.xuxiaowei.ui.test.service.PassportService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,27 +44,27 @@ public class PassportHystrixService {
     /**
      * 测试 登录模块 参数接收、保存数据 服务实现
      *
-     * @param passport 登录模块测试表，必填，否则调用失败
+     * @param wwwPassport 登录模块测试表，必填，否则调用失败
      * @return 返回 测试 登录模块 结果
      */
     @HystrixCommand(fallbackMethod = "saveFallback")
-    public Map<String, Object> save(Passport passport) {
-        return passportService.save(passport);
+    public Map<String, Object> save(WwwPassport wwwPassport) {
+        return passportService.save(wwwPassport);
     }
 
     /**
      * 测试 登录模块 参数接收、保存数据 异常数据
      *
-     * @param passport 登录模块测试表
+     * @param wwwPassport 登录模块测试表
      * @return 返回 异常 结果
      */
-    public Map<String, Object> saveFallback(Passport passport) {
+    public Map<String, Object> saveFallback(WwwPassport wwwPassport) {
         Map<String, Object> map = new HashMap<>(4);
         Map<String, Object> data = new HashMap<>(4);
         map.put("data", data);
         map.put("code", "A001");
         map.put("msg", "调用失败，Passport Service 故障");
-        data.put("passport", passport);
+        data.put("WwwPassport", wwwPassport);
         return map;
     }
 
