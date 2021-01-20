@@ -16,13 +16,13 @@
 package cn.com.xuxiaowei.ui.test.service.hystrix;
 
 import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
+import cn.com.xuxiaowei.ui.test.exception.TestPassportException;
 import cn.com.xuxiaowei.ui.test.service.PassportService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -57,15 +57,10 @@ public class PassportHystrixService {
      *
      * @param wwwPassport 登录模块测试表
      * @return 返回 异常 结果
+     * @throws TestPassportException 测试登录模块 异常
      */
-    public Map<String, Object> saveFallback(WwwPassport wwwPassport) {
-        Map<String, Object> map = new HashMap<>(4);
-        Map<String, Object> data = new HashMap<>(4);
-        map.put("data", data);
-        map.put("code", "A001");
-        map.put("msg", "调用失败，Passport Service 故障");
-        data.put("WwwPassport", wwwPassport);
-        return map;
+    public Map<String, Object> saveFallback(WwwPassport wwwPassport) throws TestPassportException {
+        throw new TestPassportException();
     }
 
     /**
