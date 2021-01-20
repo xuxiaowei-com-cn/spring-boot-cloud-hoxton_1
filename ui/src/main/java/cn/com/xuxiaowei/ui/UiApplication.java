@@ -15,6 +15,7 @@
  */
 package cn.com.xuxiaowei.ui;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -35,6 +36,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @see <a href="https://docs.spring.io/spring-cloud-netflix/docs/2.2.6.RELEASE/reference/html/#netflix-zuul-reverse-proxy">netflix-zuul-reverse-proxy</a>
  * @since 0.0.1
  */
+@GlobalTransactional
 @EnableEurekaClient
 @EnableFeignClients
 @EnableCircuitBreaker
