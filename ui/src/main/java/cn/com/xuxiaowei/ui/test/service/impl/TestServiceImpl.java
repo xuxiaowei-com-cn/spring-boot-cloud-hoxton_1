@@ -16,9 +16,15 @@
 package cn.com.xuxiaowei.ui.test.service.impl;
 
 import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
+import cn.com.xuxiaowei.ui.test.hystrix.PassportHystrixService;
+import cn.com.xuxiaowei.ui.test.hystrix.WwwHystrixService;
 import cn.com.xuxiaowei.ui.test.service.ITestService;
+import io.seata.spring.annotation.GlobalTransactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -30,6 +36,20 @@ import java.util.Map;
 @Service
 public class TestServiceImpl implements ITestService {
 
+    private PassportHystrixService passportHystrixService;
+
+    private WwwHystrixService wwwHystrixService;
+
+    @Autowired
+    public void setPassportHystrixService(PassportHystrixService passportHystrixService) {
+        this.passportHystrixService = passportHystrixService;
+    }
+
+    @Autowired
+    public void setWwwHystrixService(WwwHystrixService wwwHystrixService) {
+        this.wwwHystrixService = wwwHystrixService;
+    }
+
     /**
      * 测试 分布式事务 seata
      *
@@ -37,8 +57,21 @@ public class TestServiceImpl implements ITestService {
      * @return 返回 分布式事务 seata 结果
      */
     @Override
+    @Transactional
+    @GlobalTransactional
     public Map<String, Object> seataSave(WwwPassport wwwPassport) {
-        return null;
+        Map<String, Object> map = new HashMap<>(4);
+
+        Map<String, Object> saveWww = wwwHystrixService.save(wwwPassport);
+        Map<String, Object> savePassport = passportHystrixService.save(wwwPassport);
+
+        map.put("code", "00000");
+        map.put("msg", "保存成功");
+
+        map.put("saveWww", saveWww);
+        map.put("savePassport", savePassport);
+
+        return map;
     }
 
 }

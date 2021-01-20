@@ -16,11 +16,8 @@
 package cn.com.xuxiaowei.ui.test.controller;
 
 import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
-import cn.com.xuxiaowei.ui.test.hystrix.PassportHystrixService;
-import cn.com.xuxiaowei.ui.test.hystrix.WwwHystrixService;
-import io.seata.spring.annotation.GlobalTransactional;
+import cn.com.xuxiaowei.ui.test.service.ITestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +25,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -41,18 +37,11 @@ import java.util.Map;
 @RequestMapping("/test")
 public class TestRestController {
 
-    private WwwHystrixService wwwHystrixService;
-
-    private PassportHystrixService passportHystrixService;
+    private ITestService testService;
 
     @Autowired
-    public void setWwwHystrixService(WwwHystrixService wwwHystrixService) {
-        this.wwwHystrixService = wwwHystrixService;
-    }
-
-    @Autowired
-    public void setPassportHystrixService(PassportHystrixService passportHystrixService) {
-        this.passportHystrixService = passportHystrixService;
+    public void setTestService(ITestService testService) {
+        this.testService = testService;
     }
 
     /**
@@ -64,20 +53,10 @@ public class TestRestController {
      * @param wwwPassport 网站模块测试表，必填，否则调用失败
      * @return 返回 测试 分布式事务 seata 结果
      */
-    @Transactional
-    @GlobalTransactional
     @RequestMapping(value = "/seata/save")
     public Map<String, Object> seataSave(HttpServletRequest request, HttpServletResponse response, HttpSession session,
                                          @RequestBody WwwPassport wwwPassport) {
-        Map<String, Object> map = new HashMap<>(4);
-
-        Map<String, Object> saveWww = wwwHystrixService.save(wwwPassport);
-        Map<String, Object> savePassport = passportHystrixService.save(wwwPassport);
-
-        map.put("saveWww", saveWww);
-        map.put("savePassport", savePassport);
-
-        return map;
+        return testService.seataSave(wwwPassport);
     }
 
 }
