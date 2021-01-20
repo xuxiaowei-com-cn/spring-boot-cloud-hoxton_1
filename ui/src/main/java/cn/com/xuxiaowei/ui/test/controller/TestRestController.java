@@ -16,8 +16,8 @@
 package cn.com.xuxiaowei.ui.test.controller;
 
 import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
-import cn.com.xuxiaowei.ui.test.service.hystrix.PassportHystrixService;
-import cn.com.xuxiaowei.ui.test.service.hystrix.WwwHystrixService;
+import cn.com.xuxiaowei.ui.test.hystrix.PassportHystrixService;
+import cn.com.xuxiaowei.ui.test.hystrix.WwwHystrixService;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;

@@ -16,7 +16,7 @@
 package cn.com.xuxiaowei.ui.test.controller;
 
 import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
-import cn.com.xuxiaowei.ui.test.service.hystrix.PassportHystrixService;
+import cn.com.xuxiaowei.ui.test.hystrix.PassportHystrixService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
