@@ -19,7 +19,9 @@ import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
 import cn.com.xuxiaowei.ui.test.hystrix.PassportHystrixService;
 import cn.com.xuxiaowei.ui.test.hystrix.WwwHystrixService;
 import cn.com.xuxiaowei.ui.test.service.ITestService;
+import io.seata.core.context.RootContext;
 import io.seata.spring.annotation.GlobalTransactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +35,7 @@ import java.util.Map;
  * @author xuxiaowei
  * @since 0.0.1
  */
+@Slf4j
 @Service
 public class TestServiceImpl implements ITestService {
 
@@ -60,6 +63,9 @@ public class TestServiceImpl implements ITestService {
     @Transactional
     @GlobalTransactional
     public Map<String, Object> seataSave(WwwPassport wwwPassport) {
+
+        log.info("当前 XID: {}", RootContext.getXID());
+
         Map<String, Object> map = new HashMap<>(4);
 
         Map<String, Object> saveWww = wwwHystrixService.save(wwwPassport);

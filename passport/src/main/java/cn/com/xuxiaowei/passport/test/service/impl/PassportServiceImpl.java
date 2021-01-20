@@ -4,6 +4,8 @@ import cn.com.xuxiaowei.passport.test.entity.Passport;
 import cn.com.xuxiaowei.passport.test.mapper.PassportMapper;
 import cn.com.xuxiaowei.passport.test.service.IPassportService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.seata.core.context.RootContext;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author 徐晓伟
  * @since 2021-01-19
  */
+@Slf4j
 @Service
 public class PassportServiceImpl extends ServiceImpl<PassportMapper, Passport> implements IPassportService {
 
@@ -28,6 +31,9 @@ public class PassportServiceImpl extends ServiceImpl<PassportMapper, Passport> i
     @Override
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public boolean save(Passport entity) {
+
+        log.info("当前 XID: {}", RootContext.getXID());
+
         boolean save = super.save(entity);
         int i = 1 / entity.getPassportNum();
         return save;
