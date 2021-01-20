@@ -5,7 +5,7 @@ seata:
   # https://dynamic-datasource.com/guide/tx/Seata.html#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9
   enable-auto-data-source-proxy: false
   enabled: true
-  application-id: applicationName
+  application-id: spring-boot-cloud-hoxton
   tx-service-group: tx-service-group-dev
   service:
     vgroup-mapping:
