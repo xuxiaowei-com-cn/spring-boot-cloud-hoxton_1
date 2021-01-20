@@ -15,7 +15,6 @@
  */
 package cn.com.xuxiaowei.www;
 
-import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -27,7 +26,6 @@ import org.springframework.context.annotation.ComponentScan;
  * @author xuxiaowei
  * @since 0.0.1
  */
-@GlobalTransactional
 @EnableEurekaClient
 @SpringBootApplication
 @ComponentScan(value = {"cn.com.xuxiaowei.www", "cn.com.xuxiaowei.mybatis"})
