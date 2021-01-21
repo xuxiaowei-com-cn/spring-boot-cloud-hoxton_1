@@ -19,6 +19,7 @@ import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
 import cn.com.xuxiaowei.ui.test.hystrix.PassportHystrixService;
 import cn.com.xuxiaowei.ui.test.hystrix.WwwHystrixService;
 import cn.com.xuxiaowei.ui.test.service.ITestService;
+import com.baomidou.dynamic.datasource.annotation.DS;
 import io.seata.core.context.RootContext;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
@@ -59,6 +60,7 @@ public class TestServiceImpl implements ITestService {
      * @param wwwPassport 网站模块测试表
      * @return 返回 分布式事务 seata 结果
      */
+    @DS("master")
     @Override
     @Transactional
     @GlobalTransactional

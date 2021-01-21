@@ -3,6 +3,7 @@ package cn.com.xuxiaowei.www.test.service.impl;
 import cn.com.xuxiaowei.www.test.entity.Www;
 import cn.com.xuxiaowei.www.test.mapper.WwwMapper;
 import cn.com.xuxiaowei.www.test.service.IWwwService;
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.seata.core.context.RootContext;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,7 @@ public class WwwServiceImpl extends ServiceImpl<WwwMapper, Www> implements IWwwS
      * @param entity 实体类
      * @return 返回 保存结果
      */
+    @DS("master")
     @Override
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public boolean save(Www entity) {

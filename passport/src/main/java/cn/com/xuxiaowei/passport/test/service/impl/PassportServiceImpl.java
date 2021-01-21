@@ -3,6 +3,7 @@ package cn.com.xuxiaowei.passport.test.service.impl;
 import cn.com.xuxiaowei.passport.test.entity.Passport;
 import cn.com.xuxiaowei.passport.test.mapper.PassportMapper;
 import cn.com.xuxiaowei.passport.test.service.IPassportService;
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.seata.core.context.RootContext;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,7 @@ public class PassportServiceImpl extends ServiceImpl<PassportMapper, Passport> i
      * @param entity 实体类
      * @return 返回 保存结果
      */
+    @DS("master")
     @Override
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public boolean save(Passport entity) {
