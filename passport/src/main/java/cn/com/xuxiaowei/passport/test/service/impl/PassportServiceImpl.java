@@ -6,6 +6,7 @@ import cn.com.xuxiaowei.passport.test.service.IPassportService;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.seata.core.context.RootContext;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -31,6 +32,7 @@ public class PassportServiceImpl extends ServiceImpl<PassportMapper, Passport> i
      */
     @DS("master")
     @Override
+    @GlobalTransactional
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public boolean save(Passport entity) {
 
