@@ -33,7 +33,7 @@ public class WwwServiceImpl extends ServiceImpl<WwwMapper, Www> implements IWwwS
     @DS("master")
     @Override
     @GlobalTransactional
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public boolean save(Www entity) {
 
         log.info("当前 XID: {}", RootContext.getXID());

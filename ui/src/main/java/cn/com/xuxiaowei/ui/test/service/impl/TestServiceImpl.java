@@ -62,7 +62,7 @@ public class TestServiceImpl implements ITestService {
      */
     @DS("master")
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @GlobalTransactional
     public Map<String, Object> seataSave(WwwPassport wwwPassport) {
 

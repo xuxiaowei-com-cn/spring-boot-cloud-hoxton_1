@@ -33,7 +33,7 @@ public class PassportServiceImpl extends ServiceImpl<PassportMapper, Passport> i
     @DS("master")
     @Override
     @GlobalTransactional
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public boolean save(Passport entity) {
 
         log.info("当前 XID: {}", RootContext.getXID());
