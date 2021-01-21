@@ -9,9 +9,9 @@ seata:
   tx-service-group: spring_boot_cloud_hoxton_group
   service:
     vgroup-mapping:
-      spring_boot_cloud_hoxton_group: default  #key与上面的tx-service-group的值对应
+      spring_boot_cloud_hoxton_group: seata  #key与上面的tx-service-group的值对应
     grouplist:
-      default: localhost:8091 #seata-server地址仅file注册中心需要
+      seata: localhost:8091 #seata-server地址仅file注册中心需要
   config:
     type: file
   registry:
