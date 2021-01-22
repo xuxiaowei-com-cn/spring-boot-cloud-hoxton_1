@@ -2,9 +2,13 @@
  
 ## dependencies
 
+- Developer Tools
+    - Lombok
+    - Spring Configuration Processor
+
 - Spring Cloud Config
     - Config Client
-        - 提供配置服务器中的配置
+        - 提供读取配置服务器中的配置
 
 - Spring Cloud Discovery
     - Enable Discovery Client
@@ -19,3 +23,9 @@
     - OpenFeign
         - 提供 @EnableFeignClients 注解
         - 包含 Ribbon 依赖
+
+- Modules
+    - redis
+        - 提供统一配置
+    - mybatis
+        - 提供持久层统一配置
