@@ -16,6 +16,8 @@
     - Redis/Session 配置
 - www
     - 网站（域名） 服务模块
+- mybatis
+    - 提供持久层统一配置
 
 ## 文档
 
