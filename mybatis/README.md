@@ -6,15 +6,19 @@
 - Developer Tools
     - Lombok
     - Spring Configuration Processor
+
 - Web
     - Spring Web
+
 - SQL
     - MyBatis Framework
     - MS SQL Server Driver
     - MySQL Driver
     - Oracle Driver
+
 - I/O
     - Validation
+
 - Other
     - fastjson
     - mybatis-plus-boot-starter
