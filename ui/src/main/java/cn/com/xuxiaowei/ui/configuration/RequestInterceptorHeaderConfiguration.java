@@ -31,6 +31,8 @@ public class RequestInterceptorHeaderConfiguration implements RequestInterceptor
     @Override
     public void apply(RequestTemplate template) {
 
+        // RequestContextHolder.getRequestAttributes() 不为空
+        // hystrix.command.default.execution.isolation.strategy = SEMAPHORE
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         if (requestAttributes == null) {
             return;
