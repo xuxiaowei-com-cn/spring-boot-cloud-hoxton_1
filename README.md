@@ -42,6 +42,10 @@
 - Spring Cloud CLI
 - Spring Cloud Config
   - 配置管理
+  - Consul
+    - 是一种开源的服务发现工具，允许服务实力向该服务注册自己。服务客户端可以向 Consul 咨询服务实例的的位置。Consul 还包括可以被 Spring Cloud Config 使用的基础键值存储的数据库，能够用来存储应用程序的配置数据。
+  - Eureka
+    - 是一个开源的 Netflix 项目，像 Consul 一样，提供类似的服务发现的功能。Eureka 同样有一个可以被 Spring Cloud Config 使用的键值数据库。
 - Spring Cloud Connectors
 - Spring Cloud Consul
 - Spring Cloud Data Flow
