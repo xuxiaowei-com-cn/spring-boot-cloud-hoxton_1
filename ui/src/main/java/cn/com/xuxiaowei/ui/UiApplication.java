@@ -25,9 +25,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * UI(Ribbon、Feign)(界面模块) 程序执行入口
  * <p>
- * 通过 {@link EnableEurekaClient} 开启 Eureka 客户端
+ * 通过 {@link EnableEurekaClient} 开启 Eureka 客户端。告诉服务，它应该使用 Eureka 服务发现代理注册本身，并且服务调用是使用服务发现来“查找”远程服务的位置的。
  * 通过 {@link EnableFeignClients} 开启 feign 客户端支持
- * 通过 {@link EnableCircuitBreaker} 开启 CircuitBreaker 的支持
+ * 通过 {@link EnableCircuitBreaker} 开启 CircuitBreaker 的支持。使服务能够使用 Hystrix 和 Ribbon 库。
  * 通过 {@link EnableZuulProxy} 开启网关代理的支持
  *
  * @author xuxiaowei
