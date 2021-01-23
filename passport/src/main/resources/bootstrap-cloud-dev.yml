@@ -3,6 +3,8 @@
 spring:
   cloud:
     config:
+      # 查找 Spring Cloud 配置服务器断点的位置。
+      # 默认：http://localhost:8888
       # 由于优先级的问题，spring.cloud.config.uri 必须放到 bootstrap-*.yml 中，并使用 bootstrap.yml 激活
       uri: http://localhost:10201
       # 表示已启用远程配置的标志。默认为true
