@@ -6,6 +6,7 @@ spring:
     # 激活
     active:
       - native # 配置服务器使用本地配置（默认为 git 配置）
+      - encrypt # 加密配置-开发配置（必须配置在 bootstrap.yml 中）
       - cloud-dev # Cloud-开发配置
       - eureka-dev # Eureka-开发配置
       - logging-dev # 日志-开发配置
