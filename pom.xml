@@ -56,6 +56,12 @@
 
     <dependencies>
 
+        <!-- 监控接口 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <!-- 增加高速缓存 -->
         <!-- Spring Cloud LoadBalancer is currently working with the default cache. You can switch to using Caffeine cache, by adding it to the classpath. -->
         <!-- https://mvnrepository.com/artifact/com.github.ben-manes.caffeine/caffeine -->
