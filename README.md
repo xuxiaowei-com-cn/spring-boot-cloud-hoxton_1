@@ -41,12 +41,34 @@
 - Spring Cloud Bus
 - Spring Cloud CLI
 - Spring Cloud Config
+  - 配置管理
 - Spring Cloud Connectors
 - Spring Cloud Consul
 - Spring Cloud Data Flow
 - Spring Cloud Netflix
+  - Eureka
+    - 服务发现模式
+  - Zuul
+    - 服务路由模式
+  - Ribbon
+    - 客户端负载均衡
+  - Hystrix
+    - 断路器模式
+    - 后备模式
+    - 舱壁模式
 - Spring Cloud Security
+  - OAuth2
+    - 授权
+    - 验证
+    - 凭证管理和传播
+  - JWT
+    - 凭证管理和传播
 - Spring Cloud Sleuth
+  - 异步消息处理
+  - 日志关联
+  - 日志聚合（与Papertrail）
+  - Zipkin
+    - 微服务跟踪
 - Spring Cloud Stream
 - Spring Cloud Task
 - Spring Cloud Zookeeper
