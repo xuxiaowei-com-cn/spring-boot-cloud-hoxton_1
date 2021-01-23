@@ -2,4 +2,7 @@
 # 加密配置-开发配置
 encrypt:
   # 对称密钥。作为更强大的选择，请考虑使用密钥库。
+  # 加密地址：/encrypt
+  # 解密地址：/decrypt
+  # 请给 /decrypt、/decrypt/{name}/{profiles} 增加权限
   key: aec109d7-de5e-4e5c-947d-34ee412032d4
