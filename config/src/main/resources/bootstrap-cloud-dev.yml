@@ -7,6 +7,10 @@ spring:
         # 配置服务器使用本地配置（默认为 git 配置）
         native:
           search-locations: classpath:/config-dev/
+        encrypt:
+          # 在发送到客户端之前，启用环境属性的解密。
+          # 默认：开启
+          enabled: false
     loadbalancer:
       ribbon:
         # 防止出现安全警告
