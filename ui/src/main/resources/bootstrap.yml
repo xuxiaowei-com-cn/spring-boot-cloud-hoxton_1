@@ -5,6 +5,7 @@ spring:
   profiles:
     # 激活
     active:
+      - encrypt # 加密配置-开发配置（必须配置在 bootstrap.yml 中）
       - cloud-dev # Cloud-开发配置
       - eureka-dev # Eureka-开发配置
       - hystrix-dev # Hystrix-开发配置
