@@ -18,6 +18,7 @@ package cn.com.xuxiaowei.config;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.cloud.config.server.encryption.EncryptionController;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
@@ -27,6 +28,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * Spring Cloud 使用注解 {@link EnableConfigServer} 的方式提供 开启配置服务器
  *
  * @author xuxiaowei
+ * @see EncryptionController
  * @since 0.0.1
  */
 @EnableEurekaClient
