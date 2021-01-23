@@ -31,7 +31,7 @@ import java.util.Map;
  * @since 0.0.1
  */
 @Slf4j
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = {"cn.com.xuxiaowei.ui.test"})
 public class TestRestControllerAdvice {
 
     /**
