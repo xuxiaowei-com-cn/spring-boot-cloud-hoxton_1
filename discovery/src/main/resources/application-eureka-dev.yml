@@ -19,3 +19,8 @@ eureka:
     service-url:
       # Eureka 客户端设置 Eureka Server 的地址
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#
+archaius:
+  deployment:
+    # 环境
+    environment: 测试环境
