@@ -29,7 +29,9 @@ spring:
           url: jdbc:mysql://127.0.0.1:3306/spring-boot-cloud-hoxton?useSSL=false&serverTimezone=GMT%2B8
           # 用户名
           username: root
-          # 密码，已加密，原文：root
+          # 密码，已加密，加密开头必须为：{cipher}，原文：root
+          # 加密地址：/encrypt
+          # 解密地址：/decrypt
           password: "{cipher}37fced378645ae2dac45a8f9eee922be897495baf3d142b8f32f1ddc699a9b01"
     #
     # Hikari 连接池
