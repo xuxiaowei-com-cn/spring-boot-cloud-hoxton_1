@@ -5,14 +5,14 @@ spring:
   profiles:
     # 激活
     active:
-      - encrypt # 加密配置-开发配置（必须配置在 bootstrap.yml 中）
       - cloud-dev # Cloud-开发配置
+      - encrypt-dev # 加密配置-开发配置（必须配置在 bootstrap.yml 中）
       - eureka-dev # Eureka-开发配置
       - logging-dev # 日志-开发配置
       - server-dev # 服务器-开发配置
-      - redis-dev # Redis-开发配置（配置服务中读取）
       - datasource-dev # 数据源-开发配置（配置服务中读取）
       - mybatis-plus-dev # MyBatis Plus-开发配置（配置服务中读取）
+      - redis-dev # Redis-开发配置（配置服务中读取）
       - seata-dev # seata-开发配置（供服务读取）
   application:
     # 在 Eureka Server 注册的服务名
