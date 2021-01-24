@@ -20,6 +20,10 @@
     - Cloud Security
     - Cloud OAuth2
 
+- Spring Cloud Config
+    - Config Client
+        - 提供读取配置服务器中的配置
+
 ## SQL
 - spring-security-core-*.*.*.RELEASE.jar
   - org.springframework.security.core.userdetails.jdbc
