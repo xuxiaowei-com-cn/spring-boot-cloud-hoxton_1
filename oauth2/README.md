@@ -19,3 +19,8 @@
 - Spring Cloud Security
     - Cloud Security
     - Cloud OAuth2
+
+## SQL
+- spring-security-core-*.*.*.RELEASE.jar
+  - org.springframework.security.core.userdetails.jdbc
+    - users.ddl
