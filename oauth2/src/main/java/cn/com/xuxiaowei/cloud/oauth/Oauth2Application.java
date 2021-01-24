@@ -17,6 +17,8 @@ package cn.com.xuxiaowei.cloud.oauth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
  * OAuth2 服务 程序执行入口
@@ -24,6 +26,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author xuxiaowei
  * @since 0.0.1
  */
+@EnableResourceServer
+@EnableAuthorizationServer
 @SpringBootApplication
 public class Oauth2Application {
 
