@@ -19,7 +19,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Oauth2 服务 程序执行入口
+ * OAuth2 服务 程序执行入口
  *
  * @author xuxiaowei
  * @since 0.0.1
