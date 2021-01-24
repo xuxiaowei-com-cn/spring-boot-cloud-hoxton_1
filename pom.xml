@@ -52,6 +52,7 @@
         <module>redis</module>
         <module>mybatis</module>
         <module>www</module>
+        <module>oauth2</module>
     </modules>
 
     <dependencies>
