@@ -1,5 +1,5 @@
 #
-# 数据源-开发配置
+# 数据源（OAuth2）-开发配置
 spring:
   #
   # 数据库 配置
@@ -12,5 +12,3 @@ spring:
     username: root
     # 数据库 密码
     password: root
-  jpa:
-    show-sql: true
