@@ -24,6 +24,10 @@
     - Config Client
         - 提供读取配置服务器中的配置
 
+- Spring Cloud Discovery
+    - Enable Discovery Client
+      - 提供 @EnableEurekaClient 注解
+
 ## SQL
 - spring-security-core-*.*.*.RELEASE.jar
   - org.springframework.security.core.userdetails.jdbc
