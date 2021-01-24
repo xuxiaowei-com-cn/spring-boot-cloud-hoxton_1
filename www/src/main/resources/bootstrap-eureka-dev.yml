@@ -3,6 +3,8 @@
 eureka:
   # 实例
   instance:
+    # 注册服务的 IP，而不是服务器名称
+    prefer-ip-address: true
     # 获取实例应在其上接收流量的非安全端口。
     # 非 SSL 端口，若环境变量中 server.port 有值，则使用环境变量的值，没有则使用8080
     non-secure-port: ${server.port:10501}
