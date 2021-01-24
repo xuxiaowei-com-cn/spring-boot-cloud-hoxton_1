@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>cn.com.xuxiaowei</groupId>
+        <groupId>cn.com.xuxiaowei.cloud</groupId>
         <artifactId>spring-boot-cloud-hoxton</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-    <groupId>cn.com.xuxiaowei</groupId>
+    <groupId>cn.com.xuxiaowei.cloud</groupId>
     <artifactId>ui</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ui</name>
@@ -50,14 +50,14 @@
 
         <!-- Redis、Session 依赖于配置 -->
         <dependency>
-            <groupId>cn.com.xuxiaowei</groupId>
+            <groupId>cn.com.xuxiaowei.cloud</groupId>
             <artifactId>redis</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <!-- mybatis 配置 -->
         <dependency>
-            <groupId>cn.com.xuxiaowei</groupId>
+            <groupId>cn.com.xuxiaowei.cloud</groupId>
             <artifactId>mybatis</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

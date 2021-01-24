@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.com.xuxiaowei.passport.test.mapper.PassportMapper">
+<mapper namespace="cn.com.xuxiaowei.cloud.passport.test.mapper.PassportMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="cn.com.xuxiaowei.passport.test.entity.Passport">
+    <resultMap id="BaseResultMap" type="cn.com.xuxiaowei.cloud.passport.test.entity.Passport">
         <id column="passport_id" property="passportId" />
         <result column="passport_msg" property="passportMsg" />
         <result column="passport_num" property="passportNum" />
