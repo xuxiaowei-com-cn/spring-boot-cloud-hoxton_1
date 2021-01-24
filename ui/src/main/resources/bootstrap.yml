@@ -15,6 +15,7 @@ spring:
       - mybatis-plus-dev # MyBatis Plus-开发配置（配置服务中读取）
       - redis-dev # Redis-开发配置（配置服务中读取）
       - seata-dev # seata-开发配置（配置服务中读取）
+      - security-dev # Security-开发配置（配置服务中读取）
   application:
     # 在 Eureka Server 注册的服务名
     name: ui
