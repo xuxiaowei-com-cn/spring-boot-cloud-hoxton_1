@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,6 +64,27 @@ public class PassportRestController {
         data.put("passport", passport);
 
         return map;
+    }
+
+    /**
+     * 测试阻塞
+     *
+     * @param request  请求
+     * @param response 响应
+     * @param session  session
+     * @param mills    阻塞，毫秒
+     * @return 返回 测试阻塞 结果
+     */
+    @RequestMapping("/read-timeout")
+    public String readTimeout(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+                              @RequestParam int mills) {
+        log.info("Passport 服务-测试阻塞：{} ms", mills);
+        try {
+            Thread.sleep(mills);
+        } catch (InterruptedException e) {
+            log.error("测试阻塞 异常", e);
+        }
+        return "Passport 服务-测试阻塞完成";
     }
 
 }
