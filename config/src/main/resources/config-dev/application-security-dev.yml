@@ -1,0 +1,6 @@
+#
+# Security-开发配置（供服务读取）
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:10601/auth/user
