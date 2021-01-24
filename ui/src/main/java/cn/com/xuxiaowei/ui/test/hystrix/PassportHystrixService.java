@@ -18,6 +18,7 @@ package cn.com.xuxiaowei.ui.test.hystrix;
 import cn.com.xuxiaowei.ui.test.entity.WwwPassport;
 import cn.com.xuxiaowei.ui.test.exception.TestPassportException;
 import cn.com.xuxiaowei.ui.test.feign.PassportService;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.netflix.hystrix.contrib.javanica.conf.HystrixPropertiesManager;
@@ -36,6 +37,7 @@ import static com.netflix.hystrix.contrib.javanica.conf.HystrixPropertiesManager
  * 测试 登录模块 Hystrix
  *
  * @author xuxiaowei
+ * @see DefaultProperties 类级别注解
  * @see HystrixCommand#fallbackMethod() 后备方法
  * @see HystrixCommand#commandProperties() Hystrix 命令属性
  * @see HystrixPropertiesManager#EXECUTION_ISOLATION_THREAD_TIMEOUT_IN_MILLISECONDS 执行隔离线程超时（毫秒）
