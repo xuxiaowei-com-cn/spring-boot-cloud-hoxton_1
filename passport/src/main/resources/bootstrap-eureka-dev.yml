@@ -3,6 +3,8 @@
 eureka:
   # 实例
   instance:
+    # 主机
+    hostname: localhost
     # 注册服务的 IP，而不是服务器名称
     prefer-ip-address: true
     # 获取实例应在其上接收流量的非安全端口。
