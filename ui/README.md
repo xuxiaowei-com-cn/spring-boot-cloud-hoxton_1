@@ -6,6 +6,10 @@
     - Lombok
     - Spring Configuration Processor
 
+- Spring Cloud Security
+    - Cloud Security
+    - Cloud OAuth2
+
 - Spring Cloud Config
     - Config Client
         - 提供读取配置服务器中的配置
