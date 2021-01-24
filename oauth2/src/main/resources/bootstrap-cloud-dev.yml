@@ -1,0 +1,27 @@
+#
+# Cloud-开发配置
+spring:
+  cloud:
+    config:
+      # 查找 Spring Cloud 配置服务器断点的位置。
+      # 默认：http://localhost:8888
+      # 由于优先级的问题，spring.cloud.config.uri 必须放到 bootstrap-*.yml 中，并使用 bootstrap.yml 激活
+      uri: http://localhost:10201
+      # 表示已启用远程配置的标志。默认为true
+      enabled: true
+      # 发现属性
+      discovery:
+        # 指示已启用配置服务器发现的标志（将通过发现来查找配置服务器URL）。
+        enabled: true
+        # 用于找到配置服务器的服务ID。
+        service-id: config
+    loadbalancer:
+      ribbon:
+        # 防止出现安全警告
+        # 可设置本属性，或移除 spring-cloud-starter-netflix-ribbon（spring-cloud-starter-netflix-eureka-server 中引入了）
+        # You already have RibbonLoadBalancerClient on your classpath.
+        # It will be used by default.
+        # As Spring Cloud Ribbon is in maintenance mode.
+        # We recommend switching to BlockingLoadBalancerClient instead.
+        # In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+        enabled: false

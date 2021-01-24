@@ -5,9 +5,12 @@ spring:
   profiles:
     # 激活
     active:
-      - datasource-dev # 数据源-开发配置（配置服务中读取）
+      - cloud-dev # Cloud-开发配置
+      - encrypt-dev # 加密配置-开发配置（必须配置在 bootstrap.yml 中）
+      - eureka-dev # Eureka-开发配置
       - logging-dev # 日志-开发配置
       - server-dev # 服务器-开发配置
+      - datasource-oauth2-dev # 数据源（OAuth2）-开发配置（配置服务中读取）
   application:
     # 在 Eureka Server 注册的服务名
     name: oauth2
