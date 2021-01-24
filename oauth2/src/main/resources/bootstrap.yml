@@ -5,6 +5,7 @@ spring:
   profiles:
     # 激活
     active:
+      - datasource-dev # 数据源-开发配置（配置服务中读取）
       - logging-dev # 日志-开发配置
       - server-dev # 服务器-开发配置
   application:
