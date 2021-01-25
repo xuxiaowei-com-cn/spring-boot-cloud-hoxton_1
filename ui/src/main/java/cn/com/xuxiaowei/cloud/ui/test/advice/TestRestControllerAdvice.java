@@ -77,4 +77,18 @@ public class TestRestControllerAdvice {
         return map;
     }
 
+    /**
+     * 空指针 异常
+     *
+     * @param e 异常
+     * @return 返回 空指针 异常数据
+     */
+    @ExceptionHandler(NullPointerException.class)
+    public Map<String, Object> nullPointerException(NullPointerException e) {
+        Map<String, Object> map = new HashMap<>(4);
+        map.put("code", "D001");
+        map.put("msg", e.getMessage());
+        return map;
+    }
+
 }
