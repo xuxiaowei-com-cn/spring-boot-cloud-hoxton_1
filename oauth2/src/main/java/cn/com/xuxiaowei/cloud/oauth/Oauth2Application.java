@@ -17,6 +17,7 @@ package cn.com.xuxiaowei.cloud.oauth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.provider.client.BaseClientDetails;
@@ -35,6 +36,7 @@ import java.util.Map;
  * 设置默认值："authorization_code", "refresh_token"
  * @since 0.0.1
  */
+@EnableWebSecurity
 @EnableResourceServer
 @EnableAuthorizationServer
 @SpringBootApplication
