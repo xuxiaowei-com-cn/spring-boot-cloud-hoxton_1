@@ -17,6 +17,7 @@ package cn.com.xuxiaowei.cloud.ui.test.advice;
 
 import cn.com.xuxiaowei.cloud.ui.test.exception.TestPassportException;
 import cn.com.xuxiaowei.cloud.ui.test.exception.TestWwwException;
+import io.seata.common.exception.FrameworkException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -58,6 +59,20 @@ public class TestRestControllerAdvice {
     public Map<String, Object> testPassportException(TestPassportException e) {
         Map<String, Object> map = new HashMap<>(4);
         map.put("code", "B001");
+        map.put("msg", e.getMessage());
+        return map;
+    }
+
+    /**
+     * 分布式事务 异常
+     *
+     * @param e 异常
+     * @return 返回 分布式事务 异常数据
+     */
+    @ExceptionHandler(FrameworkException.class)
+    public Map<String, Object> frameworkException(FrameworkException e) {
+        Map<String, Object> map = new HashMap<>(4);
+        map.put("code", "C001");
         map.put("msg", e.getMessage());
         return map;
     }
