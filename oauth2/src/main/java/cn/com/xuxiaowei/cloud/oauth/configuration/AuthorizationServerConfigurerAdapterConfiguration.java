@@ -23,6 +23,7 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 import javax.sql.DataSource;
 
@@ -59,6 +60,17 @@ public class AuthorizationServerConfigurerAdapterConfiguration extends Authoriza
     @Autowired
     public void setUserDetailsService(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
+    }
+
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        // Spring EL 表达式
+        // 获取 Token 不需要权限
+        security.tokenKeyAccess("permitAll()");
+        // 检查 Token 不需要权限
+        security.checkTokenAccess("permitAll()");
+        // 允许 Client 进行表单验证（URL），否则将出现弹窗输入 ClientId、ClientSecret
+        security.allowFormAuthenticationForClients();
     }
 
     @Override
