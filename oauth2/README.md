@@ -1,20 +1,21 @@
 # OAuth2（服务模块）
 
 ## dependencies
+
 - Developer Tools
-  - Lombok
-  - Spring Configuration Processor
+    - Lombok
+    - Spring Configuration Processor
 
 - Web
-  - Spring Web
-    - 提供 Web 服务
+    - Spring Web
+        - 提供 Web 服务
 
 - SQL
-  - JDBC API
-  - MyBatis Framework
-  - MS SQL Server Driver
-  - MySQL Driver
-  - Oracle Driver
+    - JDBC API
+    - MyBatis Framework
+    - MS SQL Server Driver
+    - MySQL Driver
+    - Oracle Driver
 
 - Spring Cloud Security
     - Cloud Security
@@ -26,9 +27,10 @@
 
 - Spring Cloud Discovery
     - Enable Discovery Client
-      - 提供 @EnableEurekaClient 注解
+        - 提供 @EnableEurekaClient 注解
 
 ## SQL
+
 - spring-security-core-*.*.*.RELEASE.jar
-  - org.springframework.security.core.userdetails.jdbc
-    - users.ddl
+    - org.springframework.security.core.userdetails.jdbc
+        - users.ddl

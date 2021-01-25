@@ -3,6 +3,7 @@
 - 作为普通 jar 包（非 Spring Boot），供其他模块引用，不需要启动
 
 ## dependencies
+
 - Developer Tools
     - Lombok
     - Spring Configuration Processor

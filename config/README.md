@@ -1,5 +1,5 @@
 # Config（配置 Config Server）
- 
+
 ## dependencies
 
 - Spring Cloud Config
