@@ -23,6 +23,27 @@
 - www
     - 网站（域名） 服务模块
 
+## 配置与启动
+
+### 配置
+
+1. 新建业务数据库：spring-boot-cloud-hoxton
+    1. 业务表参见各模块中的 sql 文件夹
+    1. [业务中回滚日志表](https://github.com/seata/seata/tree/develop/script/client/at/db) ，分布式事务使用 AT。
+1. 配置 seata 服务
+    1. 新建 seata 数据库，[seata 数据库表](https://github.com/seata/seata/tree/develop/script/server/db)
+    1. [配置 seata 服务](/doc/seata-server)
+
+### 启动
+
+1. discovery（服务发现 Eureka Server）
+    - 启动成功后可访问 Eureka 服务
+1. config（配置 Config Server）
+    - 启动成功后可在 Eureka 服务中查看到本模块
+1. seata（分布式事务服务器）
+    - 启动成功后可在 Eureka 服务中查看到本模块
+1. ui 模块在最后启动，其他启动顺序可随机
+
 ## 文档
 
 - [Spring Cloud](https://spring.io/projects/spring-cloud)
