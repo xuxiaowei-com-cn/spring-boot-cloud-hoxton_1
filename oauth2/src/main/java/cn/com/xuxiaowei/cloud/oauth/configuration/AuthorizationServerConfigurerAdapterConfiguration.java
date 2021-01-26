@@ -82,6 +82,8 @@ public class AuthorizationServerConfigurerAdapterConfiguration extends Authoriza
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+
+        // 查询 client 及认证
         endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService);
 
         // code 持久化
