@@ -70,6 +70,13 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.github.bingoohuang/patchca -->
+        <dependency>
+            <groupId>com.github.bingoohuang</groupId>
+            <artifactId>patchca</artifactId>
+            <version>${patchca}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
