@@ -2,6 +2,8 @@
 
 ## 模块
 
+- cloud-admin-vue
+    - 后台管理
 - config
     - 配置 Config Server
 - discovery
