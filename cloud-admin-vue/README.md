@@ -11,8 +11,8 @@ npm init @vitejs/app cloud-admin-vue --template vue
 ## devDependencies
 
 - sass
-- [TAONPM](https://developer.aliyun.com/mirror/npm/package/sass)
-- [GitHub](https://github.com/sass/dart-sass)
+    - [TAONPM](https://developer.aliyun.com/mirror/npm/package/sass)
+    - [GitHub](https://github.com/sass/dart-sass)
 
 ~~~
 npm i -D sass
