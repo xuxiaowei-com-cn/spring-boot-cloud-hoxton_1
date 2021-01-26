@@ -1,0 +1,6 @@
+### 登录页面（使用浏览器访问）
+
+GET http://localhost:10601/login
+Accept: text/html
+
+###
