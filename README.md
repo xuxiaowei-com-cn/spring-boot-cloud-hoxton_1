@@ -16,6 +16,8 @@
     - OAuth2 认证
 - passport
     - 登录 服务模块
+- quartz
+    - quartz 服务模块
 - redis
     - Redis/Session 配置
 - ui
