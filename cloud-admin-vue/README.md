@@ -8,7 +8,9 @@ npm i -g @vitejs/create-app
 npm init @vitejs/app cloud-admin-vue --template vue
 ~~~
 
-## sass
+## devDependencies
+
+- sass
 
 ~~~
 npm i -D sass
