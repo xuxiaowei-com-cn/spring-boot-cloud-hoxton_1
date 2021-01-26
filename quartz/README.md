@@ -27,3 +27,8 @@
 - Modules
     - mybatis
         - 提供持久层统一配置
+
+## SQL
+
+- 参见 quartz-x.x.x.jar 中的 org.quartz.impl.jdbcjobstore
+    - 根据数据库选择对应的 SQL
