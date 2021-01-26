@@ -1,0 +1,8 @@
+### 访问资源
+
+POST http://localhost:10601/sns/userinfo
+Content-Type: application/x-www-form-urlencoded
+
+access_token=80bacc02-fbc2-4bcd-b918-1efdad669834
+
+###
