@@ -17,6 +17,7 @@ package cn.com.xuxiaowei.cloud.oauth.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -82,6 +83,9 @@ public class AuthorizationServerConfigurerAdapterConfiguration extends Authoriza
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+
+        // 获取 Token 可使用 GET、POST
+        endpoints.allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST);
 
         // 查询 client 及认证
         endpoints.authenticationManager(authenticationManager).userDetailsService(userDetailsService);
