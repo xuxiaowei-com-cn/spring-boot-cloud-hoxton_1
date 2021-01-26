@@ -23,3 +23,7 @@
 - Spring Cloud Discovery
     - Enable Discovery Client
         - 提供 @EnableEurekaClient 注解
+
+- Modules
+    - mybatis
+        - 提供持久层统一配置
