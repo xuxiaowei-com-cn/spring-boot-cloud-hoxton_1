@@ -8,6 +8,17 @@ npm i -g @vitejs/create-app
 npm init @vitejs/app cloud-admin-vue --template vue
 ~~~
 
+## dependencies
+
+- vue-router
+    - [TAONPM](https://developer.aliyun.com/mirror/npm/package/vue-router)
+    - [GitHub](https://github.com/vuejs/vue-router-next)
+    - [next router](https://next.router.vuejs.org)
+
+~~~
+npm i vue-router@next
+~~~
+
 ## devDependencies
 
 - sass
