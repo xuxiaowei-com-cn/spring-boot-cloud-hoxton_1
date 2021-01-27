@@ -10,6 +10,11 @@ npm init @vitejs/app cloud-admin-vue --template vue
 
 ## dependencies
 
+- element-plus
+    - [TAONPM](https://developer.aliyun.com/mirror/npm/package/element-plus)
+    - [GitHub](https://github.com/element-plus/element-plus)
+    - [Element Plus](https://element-plus.gitee.io)
+
 - vue-router
     - [TAONPM](https://developer.aliyun.com/mirror/npm/package/vue-router)
     - [GitHub](https://github.com/vuejs/vue-router-next)
