@@ -27,9 +27,10 @@ import java.util.Map;
  * 测试 登录模块 接口
  *
  * @author xuxiaowei
+ * @see FeignClient#contextId() 防止出现相同的 {@link FeignClient#value()} 时异常
  * @since 0.0.1
  */
-@FeignClient("passport")
+@FeignClient(value = "passport", contextId = "testPassportService")
 public interface TestPassportService {
 
     /**

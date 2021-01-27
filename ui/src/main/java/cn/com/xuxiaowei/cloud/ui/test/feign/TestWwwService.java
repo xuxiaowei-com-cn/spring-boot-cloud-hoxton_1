@@ -26,9 +26,10 @@ import java.util.Map;
  * 测试 网站模块 接口
  *
  * @author xuxiaowei
+ * @see FeignClient#contextId() 防止出现相同的 {@link FeignClient#value()} 时异常
  * @since 0.0.1
  */
-@FeignClient("www")
+@FeignClient(value = "www", contextId = "testWwwService")
 public interface TestWwwService {
 
     /**
