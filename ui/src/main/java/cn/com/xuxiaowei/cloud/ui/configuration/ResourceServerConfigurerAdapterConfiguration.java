@@ -35,11 +35,11 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
                 = http.antMatcher("/**").authorizeRequests();
 
         // 全自动区分计算机和人类的图灵测试
-        AntPathRequestMatcher antPathRequestMatcher = new AntPathRequestMatcher(patchcaDefaultProperties.getUrl());
-        expressionInterceptUrlRegistry.requestMatchers(antPathRequestMatcher).permitAll();
+        AntPathRequestMatcher patchca = new AntPathRequestMatcher(patchcaDefaultProperties.getUrl());
+        expressionInterceptUrlRegistry.requestMatchers(patchca).permitAll();
 
         // 排除 全自动区分计算机和人类的图灵测试 的地址需要授权
-        expressionInterceptUrlRegistry.requestMatchers(new NegatedRequestMatcher(antPathRequestMatcher)).authenticated();
+        expressionInterceptUrlRegistry.requestMatchers(new NegatedRequestMatcher(patchca)).authenticated();
 
     }
 
