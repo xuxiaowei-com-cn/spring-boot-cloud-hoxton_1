@@ -39,3 +39,5 @@
         - 提供 Redis、Session共享 统一配置
     - mybatis
         - 提供持久层统一配置
+    - utils
+        - 工具类
