@@ -2,6 +2,9 @@
 
 ## 模块
 
+- client-pom
+    - 客户端依赖
+        - 作为配置服务器的客户端所需依赖
 - cloud-admin-vue
     - 后台管理
 - config
