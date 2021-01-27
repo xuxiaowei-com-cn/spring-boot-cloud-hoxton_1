@@ -15,9 +15,9 @@
  */
 package cn.com.xuxiaowei.cloud.ui.test.hystrix;
 
-import cn.com.xuxiaowei.cloud.ui.test.entity.WwwPassport;
+import cn.com.xuxiaowei.cloud.ui.test.entity.TestWwwPassport;
 import cn.com.xuxiaowei.cloud.ui.test.exception.TestPassportException;
-import cn.com.xuxiaowei.cloud.ui.test.feign.PassportService;
+import cn.com.xuxiaowei.cloud.ui.test.feign.TestPassportService;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
@@ -62,12 +62,12 @@ import static com.netflix.hystrix.contrib.javanica.conf.HystrixPropertiesManager
  */
 @Slf4j
 @Service
-public class PassportHystrixService {
+public class TestPassportHystrixService {
 
-    private PassportService passportService;
+    private TestPassportService passportService;
 
     @Autowired
-    public void setPassportService(PassportService passportService) {
+    public void setPassportService(TestPassportService passportService) {
         this.passportService = passportService;
     }
 
@@ -78,7 +78,7 @@ public class PassportHystrixService {
      * @return 返回 测试 登录模块 结果
      */
     @HystrixCommand(fallbackMethod = "saveFallback")
-    public Map<String, Object> save(WwwPassport wwwPassport) {
+    public Map<String, Object> save(TestWwwPassport wwwPassport) {
         return passportService.save(wwwPassport);
     }
 
@@ -89,7 +89,7 @@ public class PassportHystrixService {
      * @return 返回 异常 结果
      * @throws TestPassportException 测试登录模块 异常
      */
-    public Map<String, Object> saveFallback(WwwPassport wwwPassport) throws TestPassportException {
+    public Map<String, Object> saveFallback(TestWwwPassport wwwPassport) throws TestPassportException {
         throw new TestPassportException();
     }
 

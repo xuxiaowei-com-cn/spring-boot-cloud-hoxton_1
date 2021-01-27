@@ -13,31 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.com.xuxiaowei.cloud.ui.test.feign;
+package cn.com.xuxiaowei.cloud.ui.passport.feign;
 
-import cn.com.xuxiaowei.cloud.ui.test.entity.WwwPassport;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * 测试 网站模块 接口
+ * 登录模块 接口
  *
  * @author xuxiaowei
  * @since 0.0.1
  */
-@FeignClient("www")
-public interface WwwService {
+@FeignClient("passport")
+public interface PassportService {
 
     /**
-     * 测试 网站模块 参数接收、保存数据
+     * 登录模块 登录页面
      *
-     * @param wwwPassport 网站模块测试表，必填，否则调用失败
-     * @return 返回 网站模块 测试结果
+     * @return 返回 登录模块 登录页面
      */
-    @RequestMapping("/test/www/save")
-    Map<String, Object> save(@RequestBody WwwPassport wwwPassport);
+    @GetMapping("/login")
+    String login();
 
 }

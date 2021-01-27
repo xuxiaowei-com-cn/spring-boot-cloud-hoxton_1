@@ -15,13 +15,12 @@
  */
 package cn.com.xuxiaowei.cloud.ui.test.controller;
 
-import cn.com.xuxiaowei.cloud.ui.test.entity.WwwPassport;
-import cn.com.xuxiaowei.cloud.ui.test.hystrix.PassportHystrixService;
+import cn.com.xuxiaowei.cloud.ui.test.entity.TestWwwPassport;
+import cn.com.xuxiaowei.cloud.ui.test.hystrix.TestWwwHystrixService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,50 +29,36 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
- * 测试 登录 RestController
+ * 测试 网站 RestController
  *
  * @author xuxiaowei
  * @since 0.0.1
  */
 @Slf4j
 @RestController
-@RequestMapping("/test/passport")
-public class PassportRestController {
+@RequestMapping("/test/www")
+public class TestWwwRestController {
 
-    private PassportHystrixService passportHystrixService;
+    private TestWwwHystrixService wwwHystrixService;
 
     @Autowired
-    public void setPassportHystrixService(PassportHystrixService passportHystrixService) {
-        this.passportHystrixService = passportHystrixService;
+    public void setWwwHystrixService(TestWwwHystrixService wwwHystrixService) {
+        this.wwwHystrixService = wwwHystrixService;
     }
 
     /**
-     * 测试 登录模块 参数接收、保存数据 接口
+     * 测试 网站模块 参数接收、保存数据 接口
      *
      * @param request     请求
      * @param response    响应
      * @param session     session
-     * @param wwwPassport 登录模块测试表，必填，否则调用失败
-     * @return 返回 测试 登录模块 结果
+     * @param wwwPassport 网站模块测试表，必填，否则调用失败
+     * @return 返回 测试 网站模块 结果
      */
     @RequestMapping(value = "/save")
     public Map<String, Object> save(HttpServletRequest request, HttpServletResponse response, HttpSession session,
-                                    @RequestBody WwwPassport wwwPassport) {
-        return passportHystrixService.save(wwwPassport);
-    }
-
-    /**
-     * 测试阻塞
-     *
-     * @param request  请求
-     * @param response 响应
-     * @param session  session
-     * @param mills    阻塞，毫秒
-     * @return 返回 测试阻塞 结果
-     */
-    @RequestMapping("/read-timeout")
-    public String readTimeout(HttpServletRequest request, HttpServletResponse response, HttpSession session, @RequestParam int mills) {
-        return passportHystrixService.readTimeout(mills);
+                                    @RequestBody TestWwwPassport wwwPassport) {
+        return wwwHystrixService.save(wwwPassport);
     }
 
 }

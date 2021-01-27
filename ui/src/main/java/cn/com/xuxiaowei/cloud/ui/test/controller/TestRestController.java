@@ -15,7 +15,7 @@
  */
 package cn.com.xuxiaowei.cloud.ui.test.controller;
 
-import cn.com.xuxiaowei.cloud.ui.test.entity.WwwPassport;
+import cn.com.xuxiaowei.cloud.ui.test.entity.TestWwwPassport;
 import cn.com.xuxiaowei.cloud.ui.test.service.ITestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -55,7 +55,7 @@ public class TestRestController {
      */
     @RequestMapping(value = "/seata/save")
     public Map<String, Object> seataSave(HttpServletRequest request, HttpServletResponse response, HttpSession session,
-                                         @RequestBody WwwPassport wwwPassport) {
+                                         @RequestBody TestWwwPassport wwwPassport) {
         return testService.seataSave(wwwPassport);
     }
 

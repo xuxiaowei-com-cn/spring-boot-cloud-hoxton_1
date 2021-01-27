@@ -15,7 +15,7 @@
  */
 package cn.com.xuxiaowei.cloud.ui.test.feign;
 
-import cn.com.xuxiaowei.cloud.ui.test.entity.WwwPassport;
+import cn.com.xuxiaowei.cloud.ui.test.entity.TestWwwPassport;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +30,7 @@ import java.util.Map;
  * @since 0.0.1
  */
 @FeignClient("passport")
-public interface PassportService {
+public interface TestPassportService {
 
     /**
      * 测试 登录模块 参数接收、保存数据
@@ -39,7 +39,7 @@ public interface PassportService {
      * @return 返回 登录模块 测试结果
      */
     @RequestMapping("/test/passport/save")
-    Map<String, Object> save(@RequestBody WwwPassport wwwPassport);
+    Map<String, Object> save(@RequestBody TestWwwPassport wwwPassport);
 
     /**
      * 测试阻塞

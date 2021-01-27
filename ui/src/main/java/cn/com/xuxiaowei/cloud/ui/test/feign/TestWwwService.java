@@ -13,26 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.com.xuxiaowei.cloud.ui.test.service;
+package cn.com.xuxiaowei.cloud.ui.test.feign;
 
 import cn.com.xuxiaowei.cloud.ui.test.entity.TestWwwPassport;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 
 /**
- * 测试接口
+ * 测试 网站模块 接口
  *
  * @author xuxiaowei
  * @since 0.0.1
  */
-public interface ITestService {
+@FeignClient("www")
+public interface TestWwwService {
 
     /**
-     * 测试 分布式事务 seata
+     * 测试 网站模块 参数接收、保存数据
      *
-     * @param wwwPassport 网站模块测试表
-     * @return 返回 分布式事务 seata 结果
+     * @param wwwPassport 网站模块测试表，必填，否则调用失败
+     * @return 返回 网站模块 测试结果
      */
-    Map<String, Object> seataSave(TestWwwPassport wwwPassport);
+    @RequestMapping("/test/www/save")
+    Map<String, Object> save(@RequestBody TestWwwPassport wwwPassport);
 
 }

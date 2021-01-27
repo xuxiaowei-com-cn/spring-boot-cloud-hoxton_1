@@ -15,9 +15,9 @@
  */
 package cn.com.xuxiaowei.cloud.ui.test.service.impl;
 
-import cn.com.xuxiaowei.cloud.ui.test.entity.WwwPassport;
-import cn.com.xuxiaowei.cloud.ui.test.hystrix.PassportHystrixService;
-import cn.com.xuxiaowei.cloud.ui.test.hystrix.WwwHystrixService;
+import cn.com.xuxiaowei.cloud.ui.test.entity.TestWwwPassport;
+import cn.com.xuxiaowei.cloud.ui.test.hystrix.TestPassportHystrixService;
+import cn.com.xuxiaowei.cloud.ui.test.hystrix.TestWwwHystrixService;
 import cn.com.xuxiaowei.cloud.ui.test.service.ITestService;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import io.seata.core.context.RootContext;
@@ -40,17 +40,17 @@ import java.util.Map;
 @Service
 public class TestServiceImpl implements ITestService {
 
-    private PassportHystrixService passportHystrixService;
+    private TestPassportHystrixService passportHystrixService;
 
-    private WwwHystrixService wwwHystrixService;
+    private TestWwwHystrixService wwwHystrixService;
 
     @Autowired
-    public void setPassportHystrixService(PassportHystrixService passportHystrixService) {
+    public void setPassportHystrixService(TestPassportHystrixService passportHystrixService) {
         this.passportHystrixService = passportHystrixService;
     }
 
     @Autowired
-    public void setWwwHystrixService(WwwHystrixService wwwHystrixService) {
+    public void setWwwHystrixService(TestWwwHystrixService wwwHystrixService) {
         this.wwwHystrixService = wwwHystrixService;
     }
 
@@ -64,7 +64,7 @@ public class TestServiceImpl implements ITestService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     @GlobalTransactional
-    public Map<String, Object> seataSave(WwwPassport wwwPassport) {
+    public Map<String, Object> seataSave(TestWwwPassport wwwPassport) {
 
         log.info("当前 XID: {}", RootContext.getXID());
 

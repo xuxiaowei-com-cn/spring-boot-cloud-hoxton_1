@@ -15,9 +15,9 @@
  */
 package cn.com.xuxiaowei.cloud.ui.test.hystrix;
 
-import cn.com.xuxiaowei.cloud.ui.test.entity.WwwPassport;
+import cn.com.xuxiaowei.cloud.ui.test.entity.TestWwwPassport;
 import cn.com.xuxiaowei.cloud.ui.test.exception.TestWwwException;
-import cn.com.xuxiaowei.cloud.ui.test.feign.WwwService;
+import cn.com.xuxiaowei.cloud.ui.test.feign.TestWwwService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,12 +31,12 @@ import java.util.Map;
  * @since 0.0.1
  */
 @Service
-public class WwwHystrixService {
+public class TestWwwHystrixService {
 
-    private WwwService wwwService;
+    private TestWwwService wwwService;
 
     @Autowired
-    public void setWwwService(WwwService wwwService) {
+    public void setWwwService(TestWwwService wwwService) {
         this.wwwService = wwwService;
     }
 
@@ -47,7 +47,7 @@ public class WwwHystrixService {
      * @return 返回 测试 网站模块 结果
      */
     @HystrixCommand(fallbackMethod = "saveFallback")
-    public Map<String, Object> save(WwwPassport wwwPassport) {
+    public Map<String, Object> save(TestWwwPassport wwwPassport) {
         return wwwService.save(wwwPassport);
     }
 
@@ -58,7 +58,7 @@ public class WwwHystrixService {
      * @return 返回 异常 结果
      * @throws TestWwwException 测试网站模块 异常
      */
-    public Map<String, Object> saveFallback(WwwPassport wwwPassport) throws TestWwwException {
+    public Map<String, Object> saveFallback(TestWwwPassport wwwPassport) throws TestWwwException {
         throw new TestWwwException();
     }
 
