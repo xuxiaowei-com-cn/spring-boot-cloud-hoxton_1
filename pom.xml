@@ -57,6 +57,7 @@
         <module>www</module>
         <module>oauth2</module>
         <module>quartz</module>
+        <module>utils</module>
     </modules>
 
     <dependencies>

@@ -24,6 +24,8 @@
     - Redis/Session 配置
 - ui
     - 界面模块 Ribbon、Feign
+- utils
+    - 工具包模块
 - www
     - 网站（域名） 服务模块
 
