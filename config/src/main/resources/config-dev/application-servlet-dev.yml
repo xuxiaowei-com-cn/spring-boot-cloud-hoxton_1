@@ -30,3 +30,5 @@ servlet:
       random: 5
       # 参数名
       parameter-name: patchca
+      # 地址
+      url: /patchca

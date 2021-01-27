@@ -85,4 +85,9 @@ public class PatchcaDefaultProperties {
      */
     private String parameterName;
 
+    /**
+     * 地址
+     */
+    private String url;
+
 }

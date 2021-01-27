@@ -15,6 +15,7 @@
  */
 package cn.com.xuxiaowei.cloud.ui.configuration;
 
+import cn.com.xuxiaowei.cloud.ui.properties.PatchcaDefaultProperties;
 import cn.com.xuxiaowei.cloud.ui.servlet.PatchcaHttpServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -32,7 +33,14 @@ import javax.servlet.http.HttpServlet;
 @Configuration
 public class ServletConfiguration {
 
+    private PatchcaDefaultProperties patchcaDefaultProperties;
+
     private PatchcaHttpServlet patchcaHttpServlet;
+
+    @Autowired
+    public void setPatchcaDefaultProperties(PatchcaDefaultProperties patchcaDefaultProperties) {
+        this.patchcaDefaultProperties = patchcaDefaultProperties;
+    }
 
     @Autowired
     public void setPatchcaHttpServlet(PatchcaHttpServlet patchcaHttpServlet) {
@@ -46,7 +54,7 @@ public class ServletConfiguration {
      */
     @Bean
     public ServletRegistrationBean<HttpServlet> patchcaHttpServletBean() {
-        return new ServletRegistrationBean<>(patchcaHttpServlet, "/patchca");
+        return new ServletRegistrationBean<>(patchcaHttpServlet, patchcaDefaultProperties.getUrl());
     }
 
 }
