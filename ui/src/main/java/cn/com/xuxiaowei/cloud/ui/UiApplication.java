@@ -22,6 +22,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
@@ -38,6 +39,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  * @see <a href="https://docs.spring.io/spring-cloud-netflix/docs/2.2.6.RELEASE/reference/html/#netflix-zuul-reverse-proxy">netflix-zuul-reverse-proxy</a>
  * @since 0.0.1
  */
+@EnableWebSecurity
 @EnableResourceServer
 @EnableEurekaClient
 @EnableFeignClients
