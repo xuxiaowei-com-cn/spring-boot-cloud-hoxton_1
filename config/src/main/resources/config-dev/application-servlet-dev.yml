@@ -1,0 +1,32 @@
+#
+# Servlet 开发配置
+#
+servlet:
+  # 全自动区分计算机和人类的图灵测试
+  patchca:
+    # 默认值
+    default:
+      # 字符范围
+      # 去掉了容易混淆的 1、0、l、o、I、O：23456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ
+      # 全字符：1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+      characters: 23456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ
+      # 字符长度最大值
+      max-length: 5
+      # 字符长度最小值
+      min-length: 3
+      # 图片宽度
+      width: 150
+      # 图片高度
+      height: 50
+      # 字体最小
+      min-size: 25
+      # 字体最大
+      max-size: 35
+      # Session Name
+      session-name: SESSION_PATCHCA
+      # 格式
+      format: png
+      # 随机字体种类，最小值 1 ，最大值 5
+      random: 5
+      # 参数名
+      parameter-name: patchca
