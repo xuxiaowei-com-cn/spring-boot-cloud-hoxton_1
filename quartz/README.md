@@ -10,9 +10,6 @@
     - Spring Web
         - 提供 Web 服务
 
-- Template Engines
-    - Thymeleaf
-
 - I/O
     - Quartz Scheduler
 
