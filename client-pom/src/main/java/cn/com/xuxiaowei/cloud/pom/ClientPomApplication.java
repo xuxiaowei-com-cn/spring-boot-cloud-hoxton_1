@@ -20,6 +20,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 客户端依赖 程序执行入口
+ * <p>
+ * 禁止启动
  *
  * @author xuxiaowei
  * @since 0.0.1
