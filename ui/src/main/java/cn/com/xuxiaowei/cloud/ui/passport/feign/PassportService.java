@@ -18,6 +18,7 @@ package cn.com.xuxiaowei.cloud.ui.passport.feign;
 import cn.com.xuxiaowei.cloud.utils.http.Response;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 登录模块 接口
@@ -37,6 +38,6 @@ public interface PassportService {
      * @return 返回 登录模块 登录页面
      */
     @PostMapping("/login")
-    Response login(String username, String password, Boolean rememberMe);
+    Response login(@RequestParam String username, @RequestParam String password, @RequestParam Boolean rememberMe);
 
 }
