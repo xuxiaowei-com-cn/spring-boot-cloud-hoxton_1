@@ -16,7 +16,7 @@
 package cn.com.xuxiaowei.cloud.ui.passport.hystrix;
 
 import cn.com.xuxiaowei.cloud.ui.passport.feign.PassportService;
-import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
+import cn.com.xuxiaowei.cloud.utils.http.Response;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,6 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-@DefaultProperties(defaultFallback = "loginFallback")
 public class PassportHystrixService {
 
     private PassportService passportService;
@@ -43,15 +42,21 @@ public class PassportHystrixService {
     /**
      * 登录模块 登录页面
      *
+     * @param username   用户名
+     * @param password   密码
+     * @param rememberMe 记住我
      * @return 返回 登录模块 登录页面
      */
-    @HystrixCommand
-    public String login() {
-        return passportService.login();
+    @HystrixCommand(fallbackMethod = "loginFallback")
+    public Response login(String username, String password, Boolean rememberMe) {
+        return passportService.login(username, password, rememberMe);
     }
 
-    public String loginFallback() {
-        return "登录模块异常";
+    public Response loginFallback(String username, String password, Boolean rememberMe) {
+        Response response = new Response();
+        response.setCode("A001");
+        response.setMsg("登录模块异常");
+        return response;
     }
 
 }
