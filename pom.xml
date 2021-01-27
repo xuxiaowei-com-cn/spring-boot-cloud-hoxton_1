@@ -39,7 +39,7 @@
         <seata-spring-boot-starter.version>1.4.1</seata-spring-boot-starter.version>
 
         <!-- https://mvnrepository.com/artifact/com.github.bingoohuang/patchca -->
-        <patchca>0.0.1</patchca>
+        <patchca.version>0.0.1</patchca.version>
 
         <!-- 打包时跳过单元测试 -->
         <skipTests>true</skipTests>

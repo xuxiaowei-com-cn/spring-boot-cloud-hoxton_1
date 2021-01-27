@@ -74,7 +74,7 @@
         <dependency>
             <groupId>com.github.bingoohuang</groupId>
             <artifactId>patchca</artifactId>
-            <version>${patchca}</version>
+            <version>${patchca.version}</version>
         </dependency>
 
     </dependencies>
