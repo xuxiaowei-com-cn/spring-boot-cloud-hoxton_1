@@ -15,9 +15,9 @@
  */
 package cn.com.xuxiaowei.cloud.ui.test.hystrix;
 
-import cn.com.xuxiaowei.cloud.ui.test.feign.WwwService;
 import cn.com.xuxiaowei.cloud.ui.test.entity.WwwPassport;
 import cn.com.xuxiaowei.cloud.ui.test.exception.TestWwwException;
+import cn.com.xuxiaowei.cloud.ui.test.feign.WwwService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
