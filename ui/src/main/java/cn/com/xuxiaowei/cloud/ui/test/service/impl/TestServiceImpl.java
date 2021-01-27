@@ -15,8 +15,8 @@
  */
 package cn.com.xuxiaowei.cloud.ui.test.service.impl;
 
-import cn.com.xuxiaowei.cloud.ui.test.hystrix.PassportHystrixService;
 import cn.com.xuxiaowei.cloud.ui.test.entity.WwwPassport;
+import cn.com.xuxiaowei.cloud.ui.test.hystrix.PassportHystrixService;
 import cn.com.xuxiaowei.cloud.ui.test.hystrix.WwwHystrixService;
 import cn.com.xuxiaowei.cloud.ui.test.service.ITestService;
 import com.baomidou.dynamic.datasource.annotation.DS;
