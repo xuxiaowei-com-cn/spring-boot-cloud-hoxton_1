@@ -1,5 +1,5 @@
 #
-# Servlet 开发配置
+# Servlet-开发配置
 #
 servlet:
   # 全自动区分计算机和人类的图灵测试
