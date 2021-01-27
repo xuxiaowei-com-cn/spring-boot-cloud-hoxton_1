@@ -58,6 +58,7 @@
         <module>oauth2</module>
         <module>quartz</module>
         <module>utils</module>
+        <module>client-pom</module>
     </modules>
 
     <dependencies>
