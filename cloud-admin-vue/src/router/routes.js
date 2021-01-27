@@ -1,5 +1,7 @@
 import Home from '../views/home/index.vue'
 
+import Login from "./login";
+
 const routes = [
     {
         path: '/',
@@ -14,6 +16,7 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/about/index.vue')
     },
+    Login,
 ]
 
 export default routes
