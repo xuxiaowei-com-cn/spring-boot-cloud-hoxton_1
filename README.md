@@ -50,6 +50,38 @@
     - 启动成功后可在 Eureka 服务中查看到本模块
 1. 推荐 ui 模块在最后启动，其他启动顺序可随机
 
+## 打包
+
+- 编译打包
+    ~~~
+    mvn clean package
+    ~~~
+
+- 源码打包
+    ~~~
+    mvn clean source:jar
+    ~~~
+
+- 文档打包
+    ~~~
+    mvn clean javadoc:jar
+    ~~~
+
+- 编译打包、源码打包、文档打包
+    ~~~
+    mvn clean package source:jar javadoc:jar
+    ~~~
+
+- 打包某一（些）模块
+    - 多模块使用英文逗号分隔
+    ~~~
+    -pl,--projects <arg>
+    ~~~
+    - 例：
+        ~~~
+        mvn clean package -pl utils
+        ~~~
+
 ## 文档
 
 - [Spring Cloud](https://spring.io/projects/spring-cloud)
