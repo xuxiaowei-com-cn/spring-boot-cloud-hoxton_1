@@ -34,12 +34,17 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry expressionInterceptUrlRegistry
                 = http.antMatcher("/**").authorizeRequests();
 
-        // 全自动区分计算机和人类的图灵测试
-        AntPathRequestMatcher patchca = new AntPathRequestMatcher(patchcaDefaultProperties.getUrl());
-        expressionInterceptUrlRegistry.requestMatchers(patchca).permitAll();
+        // 全自动区分计算机和人类的图灵测试 不需要授权
+        AntPathRequestMatcher patchcaAnt = new AntPathRequestMatcher(patchcaDefaultProperties.getUrl());
+        // 登录页面（GET）、登录请求（POST）不需要授权
+        AntPathRequestMatcher loginAnt = new AntPathRequestMatcher("/login");
+        expressionInterceptUrlRegistry.requestMatchers(patchcaAnt, loginAnt).permitAll();
 
         // 排除 全自动区分计算机和人类的图灵测试 的地址需要授权
-        expressionInterceptUrlRegistry.requestMatchers(new NegatedRequestMatcher(patchca)).authenticated();
+        NegatedRequestMatcher patchcaNegated = new NegatedRequestMatcher(patchcaAnt);
+        // 排除 登录页面（GET）、登录请求（POST）的地址需要授权
+        NegatedRequestMatcher loginNegated = new NegatedRequestMatcher(loginAnt);
+        expressionInterceptUrlRegistry.requestMatchers(patchcaNegated, loginNegated).authenticated();
 
     }
 
