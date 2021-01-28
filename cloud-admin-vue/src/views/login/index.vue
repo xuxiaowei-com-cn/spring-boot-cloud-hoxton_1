@@ -21,7 +21,13 @@
           <i class="el-icon-picture-outline input-icon"></i>
           <el-input type="text" v-model="loginForm.patchca" class="input-icon-left patchca" placeholder="请输入验证码"
                     :autocomplete="loginFormAutocomplete.patchca"></el-input>
-          <el-image class="patchca-img" :src="patchcaSrc" fit="fit" @click="patchcaClick()"></el-image>
+          <el-image class="patchca-img" :src="patchcaSrc" fit="fit" @click="patchcaClick()" alt="图片验证码">
+            <template #error>
+              <div class="image-slot" style="color: #c2c2c2; text-align: center">
+                图片加载失败
+              </div>
+            </template>
+          </el-image>
         </el-form-item>
         <el-form-item>
           <el-checkbox v-model="loginForm.rememberMe">记住我</el-checkbox>
