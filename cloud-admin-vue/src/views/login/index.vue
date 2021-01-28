@@ -94,7 +94,7 @@ function login() {
 
         .el-form-item {
           .el-form-item__content {
-            width: 280px;
+            width: 270px;
           }
         }
       }
