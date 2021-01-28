@@ -14,6 +14,6 @@ const app = createApp(App)
 app.use(router)
 app.use(ElementPlus)
 
-app.config.globalProperties.request = request
+app.config.globalProperties.$request = request
 
 app.mount('#app')
