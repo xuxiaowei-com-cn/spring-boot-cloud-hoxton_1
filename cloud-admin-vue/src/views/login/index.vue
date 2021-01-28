@@ -6,7 +6,7 @@
       </div>
     </el-header>
     <el-main class="login-main">
-      <el-form ref="form" :model="loginForm" :rules="loginRules" class="login-form">
+      <el-form ref="loginRef" :model="loginForm" :rules="loginRules" class="login-form">
         <el-form-item prop="username">
           <i class="el-icon-user input-icon"></i>
           <el-input type="text" v-model="loginForm.username" class="input-icon-left" placeholder="请输入用户名"
