@@ -89,7 +89,6 @@ function login() {
 
     .login-main {
       .login-form {
-        width: 300px;
 
         .el-form-item {
           .el-form-item__content {
@@ -108,7 +107,6 @@ function login() {
 
     .login-main {
       .login-form {
-        width: 375px;
 
         .el-form-item {
           .el-form-item__content {
