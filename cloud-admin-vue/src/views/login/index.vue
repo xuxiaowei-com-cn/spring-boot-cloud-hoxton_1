@@ -42,7 +42,10 @@
 </template>
 
 <script setup>
-import {reactive, ref} from 'vue'
+import {getCurrentInstance, reactive, ref} from 'vue'
+import axios from "../../utils/axios";
+// 获取当前示例
+const {ctx} = getCurrentInstance()
 
 const patchcaSrc = ref('http://localhost:20001/patchca')
 
@@ -85,7 +88,11 @@ function patchcaClick() {
  * 登录请求
  */
 function login() {
-  console.log(loginForm)
+  ctx.$axios.post('http://localhost:20001/login').then(response => {
+    console.info(response)
+  }).catch(response => {
+    console.error(response)
+  })
 }
 
 </script>
