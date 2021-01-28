@@ -9,17 +9,17 @@
       <el-form ref="form" :model="loginForm" class="login-form">
         <el-form-item>
           <i class="el-icon-user input-icon"></i>
-          <el-input type="text" v-model="loginForm.username" class="input-icon-left"
+          <el-input type="text" v-model="loginForm.username" class="input-icon-left" placeholder="请输入用户名"
                     :autocomplete="loginFormAutocomplete.username"></el-input>
         </el-form-item>
         <el-form-item>
           <i class="el-icon-lock input-icon"></i>
-          <el-input type="password" v-model="loginForm.password" class="input-icon-left"
+          <el-input type="password" v-model="loginForm.password" class="input-icon-left" placeholder="请输入密码"
                     :autocomplete="loginFormAutocomplete.password"></el-input>
         </el-form-item>
         <el-form-item>
           <i class="el-icon-picture-outline input-icon"></i>
-          <el-input type="text" v-model="loginForm.patchca" class="input-icon-left patchca"
+          <el-input type="text" v-model="loginForm.patchca" class="input-icon-left patchca" placeholder="请输入验证码"
                     :autocomplete="loginFormAutocomplete.patchca"></el-input>
           <el-image class="patchca-img" :src="patchcaSrc" fit="fit" @click="patchcaClick()"></el-image>
         </el-form-item>
