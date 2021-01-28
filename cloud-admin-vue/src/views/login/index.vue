@@ -74,9 +74,9 @@ function login() {
 /* 大于手机屏 */
 @media screen and (max-width: 768px) {
   .login {
-    .login-main {
-      padding: 110px 0;
+    padding: 110px 0;
 
+    .login-main {
       .login-form {
         width: 300px;
 
@@ -93,9 +93,9 @@ function login() {
 /* 手机屏 */
 @media screen and (min-width: 768px) {
   .login {
-    .login-main {
-      padding: 60px 0 110px 0;
+    padding: 60px 0 110px 0;
 
+    .login-main {
       .login-form {
         width: 375px;
 
