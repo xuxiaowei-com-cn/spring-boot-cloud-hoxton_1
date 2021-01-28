@@ -17,13 +17,11 @@
     - MySQL Driver
     - Oracle Driver
 
-- Spring Cloud Security
-    - Cloud Security
-    - Cloud OAuth2
-
 - Modules
     - client-pom
         - 作为配置服务器的客户端所需依赖
+    - oauth2-pom
+        - 作为需要权限的模块所需依赖
 
 ## SQL
 
