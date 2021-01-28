@@ -20,7 +20,7 @@
           <el-link type="primary" target="_blank" :underline="false" href="#forget" class="forget">忘记密码？</el-link>
         </el-form-item>
         <el-form-item>
-          <el-button @click="login()" class="login">登录</el-button>
+          <el-button @click="login()" class="login-button">登录</el-button>
         </el-form-item>
       </el-form>
     </el-main>
@@ -68,7 +68,7 @@ function login() {
           float: right;
         }
 
-        .login {
+        .login-button {
           width: 100%;
         }
 
