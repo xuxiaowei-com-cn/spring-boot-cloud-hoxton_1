@@ -43,7 +43,7 @@
 
 <script setup>
 import {getCurrentInstance, reactive, ref} from 'vue'
-import axios from "../../utils/axios";
+
 // 获取当前示例
 const {ctx} = getCurrentInstance()
 
