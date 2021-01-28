@@ -18,6 +18,12 @@
                     :autocomplete="loginFormAutocomplete.password"></el-input>
         </el-form-item>
         <el-form-item>
+          <i class="el-icon-picture-outline input-icon"></i>
+          <el-input type="text" v-model="loginForm.patchca" class="input-icon-left patchca"
+                    :autocomplete="loginFormAutocomplete.patchca"></el-input>
+          <el-image class="patchca-img" :src="patchcaSrc" fit="fit" @click="patchcaClick()"></el-image>
+        </el-form-item>
+        <el-form-item>
           <el-checkbox v-model="loginForm.rememberMe">记住我</el-checkbox>
           <el-link type="primary" target="_blank" :underline="false" href="#forget" class="forget">忘记密码？</el-link>
         </el-form-item>
@@ -30,20 +36,28 @@
 </template>
 
 <script setup>
-import {reactive} from 'vue'
+import {reactive, ref} from 'vue'
+
+const patchcaSrc = ref('http://localhost:20001/patchca')
 
 // 登录参数
 const loginForm = reactive({
   username: null,
   password: null,
   rememberMe: false,
+  patchca: null,
 })
 
 // 是否自动填充
 const loginFormAutocomplete = reactive({
   username: 'on',
   password: 'off',
+  patchca: 'off',
 })
+
+function patchcaClick() {
+  patchcaSrc.value = patchcaSrc.value.split('?')[0] + '?t=' + new Date().getTime()
+}
 
 function login() {
   console.log(loginForm)
@@ -77,6 +91,18 @@ function login() {
         .el-form-item__content {
           margin-left: auto;
           margin-right: auto;
+        }
+
+        .patchca {
+          width: calc(100% - 120px - 5px);
+        }
+
+        .patchca-img {
+          float: right;
+          border: 1px solid #DCDFE6;
+          width: 120px;
+          height: calc(40px - 1px - 1px);
+          border-radius: 4px;
         }
       }
     }
