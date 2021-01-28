@@ -82,10 +82,10 @@ function login() {
 
 }
 
-/* 大于手机屏 */
+/* 超小屏幕(手机<768px) */
 @media screen and (max-width: 768px) {
   .login {
-    padding: 110px 0;
+    padding: 60px 0 110px 0;
 
     .login-main {
       .login-form {
@@ -101,10 +101,10 @@ function login() {
   }
 }
 
-/* 手机屏 */
+/* 小屏幕(平板≥768px)、中等屏幕(桌面≥992px)、大型屏幕(桌面≥1200px) */
 @media screen and (min-width: 768px) {
   .login {
-    padding: 60px 0 110px 0;
+    padding: 110px 0;
 
     .login-main {
       .login-form {
