@@ -20,6 +20,8 @@ public class Response implements Serializable {
 
     private String msg;
 
+    private String cloudId;
+
     private Map<String, Object> data;
 
 }
