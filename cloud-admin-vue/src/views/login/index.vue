@@ -67,9 +67,16 @@ function login() {
         }
       }
     }
+  }
 
-    /* 大于手机屏 */
-    @media screen and (max-width: 768px) {
+}
+
+/* 大于手机屏 */
+@media screen and (max-width: 768px) {
+  .login {
+    .login-main {
+      padding: 110px 0;
+
       .login-form {
         width: 300px;
 
@@ -80,9 +87,15 @@ function login() {
         }
       }
     }
+  }
+}
 
-    /* 手机屏 */
-    @media screen and (min-width: 768px) {
+/* 手机屏 */
+@media screen and (min-width: 768px) {
+  .login {
+    .login-main {
+      padding: 60px 0 110px 0;
+
       .login-form {
         width: 375px;
 
@@ -94,21 +107,6 @@ function login() {
       }
     }
   }
-
-  /* 大于手机屏 */
-  @media screen and (max-width: 768px) {
-    .login-main {
-      padding: 110px 0;
-    }
-  }
-
-  /* 手机屏 */
-  @media screen and (min-width: 768px) {
-    .login-main {
-      padding: 60px 0 110px 0;
-    }
-  }
-
 }
 </style>
 
