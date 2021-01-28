@@ -1,0 +1,19 @@
+#
+# 跨域-开发配置
+cors:
+  default:
+    # 允许路径，需要提供协议、端口
+    add-mapping: /**
+    # 允许跨域的域
+    allowed-origins:
+      - http://localhost:30001
+      - http://127.0.0.1:30001
+    # 允许跨域的方法
+    allowed-methods:
+      - GET
+      - HEAD
+      - POST
+    # 时间，默认：1800 seconds (30 minutes)
+    max-age: 1800
+    # 允许携带凭证
+    allow-credentials: true
