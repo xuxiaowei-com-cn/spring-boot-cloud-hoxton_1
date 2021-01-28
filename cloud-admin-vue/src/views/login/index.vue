@@ -6,18 +6,18 @@
       </div>
     </el-header>
     <el-main class="login-main">
-      <el-form ref="form" :model="loginForm" class="login-form">
-        <el-form-item>
+      <el-form ref="form" :model="loginForm" :rules="loginRules" class="login-form">
+        <el-form-item prop="username">
           <i class="el-icon-user input-icon"></i>
           <el-input type="text" v-model="loginForm.username" class="input-icon-left" placeholder="请输入用户名"
                     :autocomplete="loginFormAutocomplete.username"></el-input>
         </el-form-item>
-        <el-form-item>
+        <el-form-item prop="password">
           <i class="el-icon-lock input-icon"></i>
           <el-input type="password" v-model="loginForm.password" class="input-icon-left" placeholder="请输入密码"
                     :autocomplete="loginFormAutocomplete.password"></el-input>
         </el-form-item>
-        <el-form-item>
+        <el-form-item prop="patchca">
           <i class="el-icon-picture-outline input-icon"></i>
           <el-input type="text" v-model="loginForm.patchca" class="input-icon-left patchca" placeholder="请输入验证码"
                     :autocomplete="loginFormAutocomplete.patchca"></el-input>
@@ -55,10 +55,29 @@ const loginFormAutocomplete = reactive({
   patchca: 'off',
 })
 
+// 验证
+const loginRules = reactive({
+  username: [
+    {required: true, message: '请输入用户名', trigger: 'blur'},
+  ],
+  password: [
+    {required: true, message: '请输入密码', trigger: 'blur'},
+  ],
+  patchca: [
+    {required: true, message: '请输入验证码', trigger: 'blur'},
+  ]
+})
+
+/**
+ * 更换图片验证码
+ */
 function patchcaClick() {
   patchcaSrc.value = patchcaSrc.value.split('?')[0] + '?t=' + new Date().getTime()
 }
 
+/**
+ * 登录请求
+ */
 function login() {
   console.log(loginForm)
 }
