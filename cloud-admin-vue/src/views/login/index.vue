@@ -112,7 +112,7 @@ function login() {
 
         .el-form-item {
           .el-form-item__content {
-            width: 335px;
+            width: 315px;
           }
         }
       }
