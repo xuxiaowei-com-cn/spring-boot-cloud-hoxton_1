@@ -1,5 +1,10 @@
 <template>
   <el-container class="login">
+    <el-header class="login-header">
+      <div class="header-context">
+        <h2>Spring Cloud Admin</h2>
+      </div>
+    </el-header>
     <el-main class="login-main">
       <el-form ref="form" :model="loginForm" class="login-form">
         <el-form-item>
@@ -46,6 +51,12 @@ function login() {
 
 <style lang="scss">
 .login {
+  .login-header {
+    .header-context {
+      text-align: center;
+    }
+  }
+
   .login-main {
 
     .login-form {
