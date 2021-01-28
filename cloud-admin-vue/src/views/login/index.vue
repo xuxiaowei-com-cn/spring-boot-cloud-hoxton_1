@@ -8,11 +8,13 @@
     <el-main class="login-main">
       <el-form ref="form" :model="loginForm" class="login-form">
         <el-form-item>
-          <el-input type="text" v-model="loginForm.username"
+          <i class="el-icon-user input-icon"></i>
+          <el-input type="text" v-model="loginForm.username" class="input-icon-left"
                     :autocomplete="loginFormAutocomplete.username"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-input type="password" v-model="loginForm.password"
+          <i class="el-icon-lock input-icon"></i>
+          <el-input type="password" v-model="loginForm.password" class="input-icon-left"
                     :autocomplete="loginFormAutocomplete.password"></el-input>
         </el-form-item>
         <el-form-item>
