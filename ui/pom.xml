@@ -26,15 +26,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-security</artifactId>
         </dependency>
 
         <dependency>
@@ -80,6 +72,13 @@
         <dependency>
             <groupId>cn.com.xuxiaowei.cloud.pom</groupId>
             <artifactId>client-pom</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- 作为需要权限的模块所需依赖 -->
+        <dependency>
+            <groupId>cn.com.xuxiaowei.cloud.pom</groupId>
+            <artifactId>oauth2-pom</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
