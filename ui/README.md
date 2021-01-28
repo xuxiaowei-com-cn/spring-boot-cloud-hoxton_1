@@ -37,3 +37,5 @@
                 - 使用 DiscoveryClient 和标准的 Spring RestTemplate 类来调用组织服务
             - Rest
                 - 使用增强的 Spring RestTemplate 来调用基于 Ribbon 的服务
+    - oauth2-pom
+        - 作为需要权限的模块所需依赖
