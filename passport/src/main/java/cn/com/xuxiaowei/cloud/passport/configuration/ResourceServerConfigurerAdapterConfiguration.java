@@ -44,6 +44,13 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
         // 排除 登录请求（POST）的地址需要授权
         NegatedRequestMatcher loginNegated = new NegatedRequestMatcher(loginAnt);
         expressionInterceptUrlRegistry.requestMatchers(loginNegated).authenticated();
+
+        // 添加一个地址及权限（由于优先级的问题，至少存在一个此配置，才能正常配置 Security，否则 Security 无效）
+        http.antMatcher("/test/**")
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/test/1")
+                .access("#oauth2.hasAnyScope('test')");
+
     }
 
 }
