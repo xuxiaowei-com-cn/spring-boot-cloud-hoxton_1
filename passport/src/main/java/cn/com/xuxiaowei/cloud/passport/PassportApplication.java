@@ -20,7 +20,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
@@ -31,7 +30,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  */
 @EnableWebSecurity
 @EnableResourceServer
-@EnableAuthorizationServer
 @EnableEurekaClient
 @SpringBootApplication
 @ComponentScan(value = {"cn.com.xuxiaowei.cloud.passport", "cn.com.xuxiaowei.cloud.mybatis"})
