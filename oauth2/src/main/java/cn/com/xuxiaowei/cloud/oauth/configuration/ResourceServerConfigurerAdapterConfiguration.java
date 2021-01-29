@@ -2,7 +2,6 @@ package cn.com.xuxiaowei.cloud.oauth.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
@@ -40,18 +39,19 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
      * 使用{@link Order}调整{@link WebSecurityConfigurerAdapter}、{@link ResourceServerConfigurerAdapter}的优先级也可行，
      * 但是不推荐，有风险。
      * 需要某些路径具有某些权限（特性）就直接去配置它们，不要牵扯别的模块。
+     * <p>
+     * 配置示例：
+     * // 配置资源路径 /sns/** 需要的权限 scope
+     * http.antMatcher("/sns/**").authorizeRequests()
+     * .antMatchers(HttpMethod.GET, "/sns/userinfo").access("#oauth2.hasAnyScope('snsapi_base','snsapi_userinfo')")
+     * .antMatchers(HttpMethod.POST, "/sns/userinfo").access("#oauth2.hasAnyScope('snsapi_base','snsapi_userinfo')")
+     * ;
      *
      * @see super#configure(HttpSecurity)
      */
     @Override
     public void configure(HttpSecurity http) throws Exception {
-
-        // 配置资源路径 /sns/** 需要的权限 scope
-        http.antMatcher("/sns/**").authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/sns/userinfo").access("#oauth2.hasAnyScope('snsapi_base','snsapi_userinfo')")
-                .antMatchers(HttpMethod.POST, "/sns/userinfo").access("#oauth2.hasAnyScope('snsapi_base','snsapi_userinfo')")
-        ;
-
+        super.configure(http);
     }
 
 }
