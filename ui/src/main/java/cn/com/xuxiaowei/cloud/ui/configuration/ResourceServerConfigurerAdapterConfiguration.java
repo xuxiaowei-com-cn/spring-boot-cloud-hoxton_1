@@ -3,6 +3,7 @@ package cn.com.xuxiaowei.cloud.ui.configuration;
 import cn.com.xuxiaowei.cloud.ui.properties.PatchcaDefaultProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
@@ -35,14 +36,14 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
                 = http.antMatcher("/**").authorizeRequests();
 
         // 全自动区分计算机和人类的图灵测试 不需要授权
-        AntPathRequestMatcher patchcaAnt = new AntPathRequestMatcher(patchcaDefaultProperties.getUrl());
-        // 登录页面（GET）、登录请求（POST）不需要授权
-        AntPathRequestMatcher loginAnt = new AntPathRequestMatcher("/login");
+        AntPathRequestMatcher patchcaAnt = new AntPathRequestMatcher(patchcaDefaultProperties.getUrl(), HttpMethod.GET.toString());
+        // 登录请求（POST）不需要授权
+        AntPathRequestMatcher loginAnt = new AntPathRequestMatcher("/login", HttpMethod.POST.toString());
         expressionInterceptUrlRegistry.requestMatchers(patchcaAnt, loginAnt).permitAll();
 
         // 排除 全自动区分计算机和人类的图灵测试 的地址需要授权
         NegatedRequestMatcher patchcaNegated = new NegatedRequestMatcher(patchcaAnt);
-        // 排除 登录页面（GET）、登录请求（POST）的地址需要授权
+        // 排除 登录请求（POST）的地址需要授权
         NegatedRequestMatcher loginNegated = new NegatedRequestMatcher(loginAnt);
         expressionInterceptUrlRegistry.requestMatchers(patchcaNegated, loginNegated).authenticated();
 
