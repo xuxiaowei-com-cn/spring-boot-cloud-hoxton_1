@@ -18,6 +18,7 @@ package cn.com.xuxiaowei.cloud.utils.security.configuration;
 import cn.com.xuxiaowei.cloud.utils.security.properties.CorsDefaultProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -27,6 +28,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author xuxiaowei
  * @since 0.0.1
  */
+@Profile("cors")
 @Configuration
 public class WebMvcConfigurerConfiguration implements WebMvcConfigurer {
 
