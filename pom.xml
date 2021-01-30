@@ -60,6 +60,7 @@
         <module>utils</module>
         <module>client-utils</module>
         <module>oauth2-utils</module>
+        <module>cloud-security-utils</module>
     </modules>
 
     <dependencies>
