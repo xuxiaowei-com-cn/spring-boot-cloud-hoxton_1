@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.com.xuxiaowei.cloud.ui.configuration;
+package cn.com.xuxiaowei.cloud.utils.security.configuration;
 
-import cn.com.xuxiaowei.cloud.ui.properties.CorsDefaultProperties;
+import cn.com.xuxiaowei.cloud.utils.security.properties.CorsDefaultProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

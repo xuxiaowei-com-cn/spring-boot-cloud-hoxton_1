@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.com.xuxiaowei.cloud.ui.properties;
+package cn.com.xuxiaowei.cloud.utils.security.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

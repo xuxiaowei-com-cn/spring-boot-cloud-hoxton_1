@@ -5,6 +5,7 @@ spring:
   profiles:
     # 激活
     active:
+      - cors-dev # 跨域-开发配置
       - cloud-dev # Cloud-开发配置
       - encrypt-dev # 加密配置-开发配置（必须配置在 bootstrap.yml 中）
       - eureka-dev # Eureka-开发配置

@@ -46,7 +46,11 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableCircuitBreaker
 @EnableZuulProxy
 @SpringBootApplication
-@ComponentScan(value = {"cn.com.xuxiaowei.cloud.ui", "cn.com.xuxiaowei.cloud.mybatis"})
+@ComponentScan(value = {
+        "cn.com.xuxiaowei.cloud.ui",
+        "cn.com.xuxiaowei.cloud.mybatis",
+        "cn.com.xuxiaowei.cloud.utils.security"
+})
 public class UiApplication {
 
     public static void main(String[] args) {
