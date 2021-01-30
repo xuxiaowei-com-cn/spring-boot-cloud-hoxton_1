@@ -59,7 +59,7 @@
         <!-- 作为需要权限的模块所需依赖 -->
         <dependency>
             <groupId>cn.com.xuxiaowei.cloud.pom</groupId>
-            <artifactId>oauth2-pom</artifactId>
+            <artifactId>oauth2-utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

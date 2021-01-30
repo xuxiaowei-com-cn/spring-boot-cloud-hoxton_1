@@ -1,4 +1,4 @@
-# Oauth2-Pom（权限依赖）
+# Oauth2-Utils（权限依赖）
 
 ## dependencies
 
