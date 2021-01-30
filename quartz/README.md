@@ -16,7 +16,7 @@
 - Modules
     - mybatis
         - 提供持久层统一配置
-    - client-pom
+    - client-utils
         - 作为配置服务器的客户端所需依赖
 
 ## SQL

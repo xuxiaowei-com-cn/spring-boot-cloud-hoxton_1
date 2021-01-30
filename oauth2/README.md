@@ -18,7 +18,7 @@
     - Oracle Driver
 
 - Modules
-    - client-pom
+    - client-utils
         - 作为配置服务器的客户端所需依赖
     - oauth2-pom
         - 作为需要权限的模块所需依赖

@@ -9,9 +9,9 @@
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.com.xuxiaowei.cloud.pom</groupId>
-    <artifactId>client-pom</artifactId>
+    <artifactId>client-utils</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>client-pom</name>
+    <name>client-utils</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

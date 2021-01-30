@@ -28,7 +28,7 @@
         - 提供持久层统一配置
     - utils
         - 工具类
-    - client-pom
+    - client-utils
         - 作为配置服务器的客户端所需依赖
         - Enable Discovery Client
             - 提供 @EnableEurekaClient 注解
