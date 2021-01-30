@@ -96,7 +96,13 @@ onMounted(() => {
 
     ctx.$refs['loginRef'].validate((valid) => {
       if (valid) {
-        ctx.$axios.post('http://localhost:20001/login').then(response => {
+
+        const params = new URLSearchParams();
+        params.append('username', loginForm.username);
+        params.append('remember-me', loginForm.rememberMe);
+        params.append('password', loginForm.password);
+
+        ctx.$axios.post('http://localhost:20001/login', params).then(response => {
           console.info(response)
         }).catch(response => {
           console.error(response)
