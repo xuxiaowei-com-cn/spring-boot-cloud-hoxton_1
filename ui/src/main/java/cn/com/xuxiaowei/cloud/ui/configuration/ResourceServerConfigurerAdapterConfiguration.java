@@ -7,6 +7,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
 
@@ -21,12 +22,22 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
 
     private PatchcaDefaultProperties patchcaDefaultProperties;
 
+    private CookieCsrfTokenRepository cookieCsrfTokenRepository;
+
     @Autowired
     public void setPatchcaDefaultProperties(PatchcaDefaultProperties patchcaDefaultProperties) {
         this.patchcaDefaultProperties = patchcaDefaultProperties;
     }
 
+    @Autowired
+    public void setCookieCsrfTokenRepository(CookieCsrfTokenRepository cookieCsrfTokenRepository) {
+        this.cookieCsrfTokenRepository = cookieCsrfTokenRepository;
+    }
+
     /**
+     *
+     * @see org.springframework.security.web.csrf.CsrfFilter
+     *
      * @see super#configure(HttpSecurity)
      */
     @Override
@@ -46,6 +57,9 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
         // 排除 登录请求（POST）的地址需要授权
         NegatedRequestMatcher loginNegated = new NegatedRequestMatcher(loginAnt);
         expressionInterceptUrlRegistry.requestMatchers(patchcaNegated, loginNegated).authenticated();
+
+        // CSRF Cookie 策略（此模块中在需要单独在此设置）
+        http.csrf().csrfTokenRepository(cookieCsrfTokenRepository);
 
     }
 
