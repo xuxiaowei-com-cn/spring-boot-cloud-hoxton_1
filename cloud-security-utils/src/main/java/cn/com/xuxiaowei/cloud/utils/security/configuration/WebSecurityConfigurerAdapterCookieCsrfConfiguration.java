@@ -73,6 +73,7 @@ public class WebSecurityConfigurerAdapterCookieCsrfConfiguration extends WebSecu
     protected void configure(HttpSecurity http) throws Exception {
 
         // CSRF 策略（默认为懒加载）
+        // 在 WebSecurityConfigurerAdapter 中设置若无效，需要在 ResourceServerConfigurerAdapter 中设置
         http.csrf().csrfTokenRepository(cookieCsrfTokenRepository());
 
         // CSRF 策略 运行前 Filter
