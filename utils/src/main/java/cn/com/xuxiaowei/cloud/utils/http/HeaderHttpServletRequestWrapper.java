@@ -59,10 +59,14 @@ public class HeaderHttpServletRequestWrapper extends HttpServletRequestWrapper {
     @Override
     public String getHeader(String name) {
         Enumeration<String> enumeration = HEADER_MAP.get(name);
-        if (enumeration.hasMoreElements()) {
-            return enumeration.nextElement();
-        } else {
+        if (enumeration == null) {
             return null;
+        } else {
+            if (enumeration.hasMoreElements()) {
+                return enumeration.nextElement();
+            } else {
+                return null;
+            }
         }
     }
 
@@ -82,12 +86,11 @@ public class HeaderHttpServletRequestWrapper extends HttpServletRequestWrapper {
      */
     @Override
     public int getIntHeader(String name) {
-        Enumeration<String> enumeration = HEADER_MAP.get(name);
-        if (enumeration.hasMoreElements()) {
-            String nextElement = enumeration.nextElement();
-            return parseInt(nextElement, 10);
-        } else {
+        String headerValue = getHeader(name);
+        if (headerValue == null) {
             return -1;
+        } else {
+            return parseInt(headerValue, 10);
         }
     }
 
