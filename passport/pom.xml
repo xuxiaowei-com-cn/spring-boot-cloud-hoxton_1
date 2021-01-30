@@ -51,14 +51,14 @@
 
         <!-- 作为配置服务器的客户端所需依赖 -->
         <dependency>
-            <groupId>cn.com.xuxiaowei.cloud.pom</groupId>
+            <groupId>cn.com.xuxiaowei.cloud.utils</groupId>
             <artifactId>client-utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <!-- 作为需要权限的模块所需依赖 -->
         <dependency>
-            <groupId>cn.com.xuxiaowei.cloud.pom</groupId>
+            <groupId>cn.com.xuxiaowei.cloud.utils</groupId>
             <artifactId>oauth2-utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

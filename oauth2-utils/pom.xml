@@ -8,7 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-    <groupId>cn.com.xuxiaowei.cloud.pom</groupId>
+    <groupId>cn.com.xuxiaowei.cloud.utils</groupId>
     <artifactId>oauth2-utils</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>oauth2-utils</name>
