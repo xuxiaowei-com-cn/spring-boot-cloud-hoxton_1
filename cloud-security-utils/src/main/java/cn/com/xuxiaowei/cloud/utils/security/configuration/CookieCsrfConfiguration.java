@@ -15,21 +15,29 @@
  */
 package cn.com.xuxiaowei.cloud.utils.security.configuration;
 
-import cn.com.xuxiaowei.cloud.utils.security.filter.CsrfCookieBeforeOncePerRequestFilter;
 import cn.com.xuxiaowei.cloud.utils.security.properties.CsrfCookieDefaultProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.LazyCsrfTokenRepository;
 
 /**
  * Security CSRF 策略 配置
+ * <p>
+ * 使用：
+ * <code>
+ * // CSRF 策略（默认为懒加载）
+ * // 在 WebSecurityConfigurerAdapter 中设置若无效，需要在 ResourceServerConfigurerAdapter 中设置
+ * http.csrf().csrfTokenRepository(cookieCsrfTokenRepository());
+ * <p>
+ * // CSRF 策略 运行前 Filter
+ * http.addFilterBefore(new CsrfCookieBeforeOncePerRequestFilter(cookieCsrfTokenRepository(),
+ * csrfCookieDefaultProperties), CsrfFilter.class);
+ * </code>
  *
  * @author xuxiaowei
  * @since 0.0.1
@@ -37,7 +45,7 @@ import org.springframework.security.web.csrf.LazyCsrfTokenRepository;
 @Profile("csrf-cookie")
 @EnableWebSecurity
 @Configuration
-public class WebSecurityConfigurerAdapterCookieCsrfConfiguration extends WebSecurityConfigurerAdapter {
+public class CookieCsrfConfiguration {
 
     private CsrfCookieDefaultProperties csrfCookieDefaultProperties;
 
@@ -67,19 +75,6 @@ public class WebSecurityConfigurerAdapterCookieCsrfConfiguration extends WebSecu
         cookieCsrfTokenRepository.setCookiePath(csrfCookieDefaultProperties.getCookiePath());
         cookieCsrfTokenRepository.setParameterName(csrfCookieDefaultProperties.getParameterName());
         return cookieCsrfTokenRepository;
-    }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-
-        // CSRF 策略（默认为懒加载）
-        // 在 WebSecurityConfigurerAdapter 中设置若无效，需要在 ResourceServerConfigurerAdapter 中设置
-        http.csrf().csrfTokenRepository(cookieCsrfTokenRepository());
-
-        // CSRF 策略 运行前 Filter
-        http.addFilterBefore(new CsrfCookieBeforeOncePerRequestFilter(cookieCsrfTokenRepository(),
-                csrfCookieDefaultProperties), CsrfFilter.class);
-
     }
 
 }
