@@ -15,6 +15,7 @@
  */
 package cn.com.xuxiaowei.cloud.utils.security.configuration;
 
+import cn.com.xuxiaowei.cloud.utils.security.filter.CsrfCookieBeforeOncePerRequestFilter;
 import cn.com.xuxiaowei.cloud.utils.security.properties.CsrfCookieDefaultProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -73,6 +74,10 @@ public class WebSecurityConfigurerAdapterCookieCsrfConfiguration extends WebSecu
 
         // CSRF 策略（默认为懒加载）
         http.csrf().csrfTokenRepository(cookieCsrfTokenRepository());
+
+        // CSRF 策略 运行前 Filter
+        http.addFilterBefore(new CsrfCookieBeforeOncePerRequestFilter(cookieCsrfTokenRepository(),
+                csrfCookieDefaultProperties), CsrfFilter.class);
 
     }
 
