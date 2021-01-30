@@ -7,6 +7,9 @@ logging:
     org.springframework.web: debug
     org.springframework.web.HttpLogging: info # 开启 org.springframework.web: debug 后，关闭获取 eureka apps 心跳
     org.springframework.web.client: info # 开启 org.springframework.web: debug 后，关闭 eureka 心跳（RestTemplate）
+    org.springframework.jdbc.core.JdbcTemplate: debug
+    org.springframework.security.core.userdetails: debug
+    org.springframework.security.oauth2: debug
     io.seata: debug
     io.seata.core.rpc.netty: info # 开启 io.seata: debug 后，关闭 seata 心跳
     io.seata.core.rpc.processor.client: info # 开启 io.seata: debug 后，关闭 seata 心跳
