@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 /**
  * 资源服务器 配置
@@ -24,6 +25,8 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
 
     private CookieCsrfTokenRepository cookieCsrfTokenRepository;
 
+    private UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource;
+
     @Autowired
     public void setPatchcaDefaultProperties(PatchcaDefaultProperties patchcaDefaultProperties) {
         this.patchcaDefaultProperties = patchcaDefaultProperties;
@@ -32,6 +35,11 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
     @Autowired
     public void setCookieCsrfTokenRepository(CookieCsrfTokenRepository cookieCsrfTokenRepository) {
         this.cookieCsrfTokenRepository = cookieCsrfTokenRepository;
+    }
+
+    @Autowired
+    public void setUrlBasedCorsConfigurationSource(UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource) {
+        this.urlBasedCorsConfigurationSource = urlBasedCorsConfigurationSource;
     }
 
     /**
@@ -60,6 +68,9 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
 
         // CSRF Cookie 策略（此模块中在需要单独在此设置）
         http.csrf().csrfTokenRepository(cookieCsrfTokenRepository);
+
+        // Security 跨域配置
+        http.cors().configurationSource(urlBasedCorsConfigurationSource);
 
     }
 
