@@ -1,4 +1,4 @@
-package cn.com.xuxiaowei.cloud.utils;
+package cn.com.xuxiaowei.cloud.utils.security;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
