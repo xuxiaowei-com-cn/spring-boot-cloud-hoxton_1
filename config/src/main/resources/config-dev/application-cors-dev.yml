@@ -7,7 +7,21 @@ cors:
     # 允许跨域的域
     allowed-origins:
       - http://localhost:30001
+      - http://localhost:10101
+      - http://localhost:10201
+      - http://localhost:10301
+      - http://localhost:10401
+      - http://localhost:10501
+      - http://localhost:10601
+      - http://localhost:10701
       - http://127.0.0.1:30001
+      - http://127.0.0.1:10101
+      - http://127.0.0.1:10201
+      - http://127.0.0.1:10301
+      - http://127.0.0.1:10401
+      - http://127.0.0.1:10501
+      - http://127.0.0.1:10601
+      - http://127.0.0.1:10701
     # 允许跨域的方法
     allowed-methods:
       - GET
