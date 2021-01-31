@@ -47,4 +47,20 @@ public class LoginRestController {
         response.setMsg("登录成功");
         return response;
     }
+
+    /**
+     * 登录失败
+     *
+     * @param httpServletRequest  请求
+     * @param httpServletResponse 响应
+     * @return 返回 登录失败
+     */
+    @RequestMapping("/failure")
+    public Response failure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+        Response response = new Response();
+        response.setCode("E0000");
+        response.setMsg("登录失败");
+        return response;
+    }
+
 }
