@@ -1,6 +1,8 @@
 package cn.com.xuxiaowei.cloud.ui.configuration;
 
 import cn.com.xuxiaowei.cloud.ui.properties.PatchcaDefaultProperties;
+import cn.com.xuxiaowei.cloud.utils.security.filter.CsrfCookieBeforeOncePerRequestFilter;
+import cn.com.xuxiaowei.cloud.utils.security.properties.CsrfCookieDefaultProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -8,6 +10,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -27,6 +31,10 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
 
     private UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource;
 
+    private CsrfTokenRepository csrfTokenRepository;
+
+    private CsrfCookieDefaultProperties csrfCookieDefaultProperties;
+
     @Autowired
     public void setPatchcaDefaultProperties(PatchcaDefaultProperties patchcaDefaultProperties) {
         this.patchcaDefaultProperties = patchcaDefaultProperties;
@@ -42,10 +50,18 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
         this.urlBasedCorsConfigurationSource = urlBasedCorsConfigurationSource;
     }
 
+    @Autowired
+    public void setCsrfTokenRepository(CsrfTokenRepository csrfTokenRepository) {
+        this.csrfTokenRepository = csrfTokenRepository;
+    }
+
+    @Autowired
+    public void setCsrfCookieDefaultProperties(CsrfCookieDefaultProperties csrfCookieDefaultProperties) {
+        this.csrfCookieDefaultProperties = csrfCookieDefaultProperties;
+    }
+
     /**
-     *
-     * @see org.springframework.security.web.csrf.CsrfFilter
-     *
+     * @see CsrfFilter
      * @see super#configure(HttpSecurity)
      */
     @Override
@@ -68,6 +84,8 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
 
         // CSRF Cookie 策略（此模块中在需要单独在此设置）
         http.csrf().csrfTokenRepository(cookieCsrfTokenRepository);
+        http.addFilterBefore(new CsrfCookieBeforeOncePerRequestFilter(csrfTokenRepository, csrfCookieDefaultProperties),
+                CsrfFilter.class);
 
         // Security 跨域配置
         http.cors().configurationSource(urlBasedCorsConfigurationSource);
