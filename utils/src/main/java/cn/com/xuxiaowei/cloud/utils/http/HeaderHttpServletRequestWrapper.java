@@ -72,7 +72,12 @@ public class HeaderHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
     @Override
     public Enumeration<String> getHeaders(String name) {
-        return HEADER_MAP.get(name);
+        Enumeration<String> enumeration = HEADER_MAP.get(name);
+        if (enumeration == null) {
+            return Collections.enumeration(new ArrayList<>());
+        } else {
+            return enumeration;
+        }
     }
 
     @Override
