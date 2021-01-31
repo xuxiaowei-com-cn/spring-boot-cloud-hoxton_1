@@ -22,6 +22,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 测试 登录模块 Hystrix
  *
@@ -37,6 +41,35 @@ public class PassportHystrixService {
     @Autowired
     public void setPassportService(PassportService passportService) {
         this.passportService = passportService;
+    }
+
+    /**
+     * Session ID
+     *
+     * @param session HttpSession
+     * @return 返回 Session ID
+     */
+    @HystrixCommand(fallbackMethod = "sessionIdFallback")
+    public Map<String, Object> sessionId(HttpSession session) {
+        Map<String, Object> map = new HashMap<>(4);
+        String response = passportService.sessionId();
+        map.put("msg", "测试模块正常");
+        map.put("ui Session ID", session.getId());
+        map.put("passport", response);
+        return map;
+    }
+
+    /**
+     * Session ID
+     *
+     * @param session HttpSession
+     * @return 返回 Session ID
+     */
+    public Map<String, Object> sessionIdFallback(HttpSession session) {
+        Map<String, Object> map = new HashMap<>(4);
+        map.put("msg", "测试模块异常");
+        map.put("ui Session ID", session.getId());
+        return map;
     }
 
     /**

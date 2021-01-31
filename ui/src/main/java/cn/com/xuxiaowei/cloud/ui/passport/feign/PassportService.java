@@ -40,4 +40,12 @@ public interface PassportService {
     @PostMapping("/login")
     Response login(@RequestParam String username, @RequestParam String password, @RequestParam Boolean rememberMe);
 
+    /**
+     * Session ID
+     *
+     * @return 返回 Session ID
+     */
+    @PostMapping("/sessionId")
+    String sessionId();
+
 }
