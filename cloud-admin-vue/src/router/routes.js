@@ -1,7 +1,7 @@
 import Home from '../views/home/index.vue'
 
 import Login from './login'
-import { ElementPlus } from './demo'
+import { ElementPlus, Session } from './demo'
 
 const routes = [
     {
@@ -19,6 +19,7 @@ const routes = [
     },
     Login,
     ElementPlus,
+    Session,
 ]
 
 export default routes
