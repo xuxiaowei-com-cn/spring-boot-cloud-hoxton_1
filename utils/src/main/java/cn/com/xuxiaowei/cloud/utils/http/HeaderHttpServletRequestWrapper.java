@@ -76,7 +76,14 @@ public class HeaderHttpServletRequestWrapper extends HttpServletRequestWrapper {
         if (enumeration == null) {
             return Collections.enumeration(new ArrayList<>());
         } else {
-            return enumeration;
+            List<String> elementList;
+            if (enumeration.hasMoreElements()) {
+                String nextElement = enumeration.nextElement();
+                elementList = Collections.singletonList(nextElement);
+            } else {
+                elementList = new ArrayList<>();
+            }
+            return Collections.enumeration(elementList);
         }
     }
 
