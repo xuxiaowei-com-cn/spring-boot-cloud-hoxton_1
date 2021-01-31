@@ -3,6 +3,7 @@
 logging:
   # 日志等级
   level:
+    cn.com.xuxiaowei.cloud.ui: debug
     # Web 日志等级（web: debug 已失效，原因是使用了配置服务，日志量较大。如果需要看，可设置 org.springframework.web）
     org.springframework.web: debug
     org.springframework.web.HttpLogging: info # 开启 org.springframework.web: debug 后，关闭获取 eureka apps 心跳
