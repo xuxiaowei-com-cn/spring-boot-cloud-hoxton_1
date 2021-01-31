@@ -51,7 +51,7 @@ public class PassportRestController {
      * @param session  session
      * @return 返回 Session ID
      */
-    @PostMapping("/passport/sessionId")
+    @RequestMapping("/sessionId")
     public Map<String, Object> sessionId(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
         return passportHystrixService.sessionId(session);
     }
