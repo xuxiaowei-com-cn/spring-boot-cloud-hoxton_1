@@ -16,7 +16,6 @@
 package cn.com.xuxiaowei.cloud.passport.controller;
 
 import cn.com.xuxiaowei.cloud.utils.http.Response;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
