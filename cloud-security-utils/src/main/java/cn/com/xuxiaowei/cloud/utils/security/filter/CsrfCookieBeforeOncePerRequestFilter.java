@@ -70,24 +70,24 @@ public class CsrfCookieBeforeOncePerRequestFilter extends OncePerRequestFilter {
             // CSRF 请求头的 name
             String headerName = csrfToken.getHeaderName();
 
-                String cookieName = csrfCookieDefaultProperties.getCookieName();
-                Cookie cookie = CookieUtils.getCookie(request, cookieName);
+            String cookieName = csrfCookieDefaultProperties.getCookieName();
+            Cookie cookie = CookieUtils.getCookie(request, cookieName);
 
-                if (cookie == null) {
-                    log.warn("Csrf Cookie 值为空");
-                } else {
+            if (cookie == null) {
+                log.warn("Csrf Cookie 值为空");
+            } else {
 
-                    // HttpServletRequest 设置为可修改 Header 的请求
-                    HeaderHttpServletRequestWrapper headerHttpServletRequestWrapper = new HeaderHttpServletRequestWrapper(request);
+                // HttpServletRequest 设置为可修改 Header 的请求
+                HeaderHttpServletRequestWrapper headerHttpServletRequestWrapper = new HeaderHttpServletRequestWrapper(request);
 
-                    // 修改 Header（CSRF Header）
-                    headerHttpServletRequestWrapper.addHeader(headerName, cookie.getValue());
+                // 修改 Header（CSRF Header）
+                headerHttpServletRequestWrapper.addHeader(headerName, cookie.getValue());
 
-                    // 使用携带 CSRF Header 的请求
-                    filterChain.doFilter(headerHttpServletRequestWrapper, response);
+                // 使用携带 CSRF Header 的请求
+                filterChain.doFilter(headerHttpServletRequestWrapper, response);
 
-                    return;
-                }
+                return;
+            }
 
         }
 
