@@ -19,7 +19,6 @@ import com.alibaba.fastjson.JSONObject;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
@@ -125,39 +124,6 @@ public class RequestUtils {
             String headerName = headerNames.nextElement();
             Enumeration<String> headerValues = request.getHeaders(headerName);
             List<String> headerValuesList = Collections.list(headerValues);
-            map.put(headerName, headerValuesList);
-        }
-        return map;
-    }
-
-    /**
-     * 获取 Header Map
-     *
-     * @param response 响应
-     * @return 返回 Header Map
-     */
-    public static Map<String, String> getHeaderMap(HttpServletResponse response) {
-        Map<String, String> map = new HashMap<>(8);
-        Collection<String> headerNames = response.getHeaderNames();
-        for (String headerName : headerNames) {
-            String headerValue = response.getHeader(headerName);
-            map.put(headerName, headerValue);
-        }
-        return map;
-    }
-
-    /**
-     * 获取 Headers Map
-     *
-     * @param response 响应
-     * @return 返回 Headers Map
-     */
-    public static Map<String, List<String>> getHeadersMap(HttpServletResponse response) {
-        Map<String, List<String>> map = new HashMap<>(8);
-        Collection<String> headerNames = response.getHeaderNames();
-        for (String headerName : headerNames) {
-            Collection<String> headerValues = response.getHeaders(headerName);
-            List<String> headerValuesList = new ArrayList<>(headerValues);
             map.put(headerName, headerValuesList);
         }
         return map;
