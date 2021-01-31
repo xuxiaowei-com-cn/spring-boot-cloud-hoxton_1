@@ -23,6 +23,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
  * UI(Ribbon、Feign)(界面模块) 程序执行入口
@@ -39,6 +40,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
  * @since 0.0.1
  */
 @EnableWebSecurity
+@EnableResourceServer
 @EnableEurekaClient
 @EnableFeignClients
 @EnableCircuitBreaker

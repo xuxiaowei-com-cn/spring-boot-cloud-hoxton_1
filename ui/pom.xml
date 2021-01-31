@@ -80,13 +80,6 @@
             <groupId>cn.com.xuxiaowei.cloud.utils</groupId>
             <artifactId>oauth2-utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <exclusions>
-                <!-- 暂时禁用 -->
-                <exclusion>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-starter-oauth2</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
     </dependencies>
