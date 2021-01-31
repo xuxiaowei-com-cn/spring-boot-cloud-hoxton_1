@@ -33,7 +33,12 @@ public class HeaderHttpServletRequestWrapper extends HttpServletRequestWrapper {
     /**
      * 新 header 内容
      */
-    private final Map<String, Enumeration<String>> HEADER_MAP;
+    private final Map<String, String> HEADER_MAP;
+
+    /**
+     * 原始请求
+     */
+    private final HttpServletRequest request;
 
     /**
      * 构造包装给定请求的请求对象。
@@ -45,46 +50,35 @@ public class HeaderHttpServletRequestWrapper extends HttpServletRequestWrapper {
         super(request);
 
         HEADER_MAP = new HashMap<>();
+        this.request = request;
 
         // 将原始 Headers 放入新 Headers（Map）中
         Enumeration<String> enumeration = request.getHeaderNames();
         while (enumeration.hasMoreElements()) {
             String headerName = enumeration.nextElement();
-            Enumeration<String> headerValues = request.getHeaders(headerName);
-            HEADER_MAP.put(headerName, headerValues);
+            String headerValue = request.getHeader(headerName);
+            HEADER_MAP.put(headerName, headerValue);
         }
 
     }
 
     @Override
     public String getHeader(String name) {
-        Enumeration<String> enumeration = HEADER_MAP.get(name);
-        if (enumeration == null) {
-            return null;
-        } else {
-            if (enumeration.hasMoreElements()) {
-                return enumeration.nextElement();
-            } else {
-                return null;
-            }
-        }
+        return HEADER_MAP.get(name);
     }
 
     @Override
     public Enumeration<String> getHeaders(String name) {
-        Enumeration<String> enumeration = HEADER_MAP.get(name);
-        if (enumeration == null) {
-            return Collections.enumeration(new ArrayList<>());
-        } else {
-            List<String> elementList;
-            if (enumeration.hasMoreElements()) {
-                String nextElement = enumeration.nextElement();
-                elementList = Collections.singletonList(nextElement);
-            } else {
-                elementList = new ArrayList<>();
-            }
-            return Collections.enumeration(elementList);
+        String enumeration = HEADER_MAP.get(name);
+        Set<String> set = new HashSet<>();
+        if (enumeration != null) {
+            set.add(enumeration);
         }
+        Enumeration<String> headerValues = request.getHeaders(name);
+        if (headerValues.hasMoreElements()) {
+            set.add(headerValues.nextElement());
+        }
+        return Collections.enumeration(set);
     }
 
     @Override
@@ -113,9 +107,7 @@ public class HeaderHttpServletRequestWrapper extends HttpServletRequestWrapper {
      * @param value 需要添加的 Header value
      */
     public void addHeader(String name, String value) {
-        List<String> list = Collections.singletonList(value);
-        Enumeration<String> enumeration = Collections.enumeration(list);
-        HEADER_MAP.put(name, enumeration);
+        HEADER_MAP.put(name, value);
     }
 
     /**
