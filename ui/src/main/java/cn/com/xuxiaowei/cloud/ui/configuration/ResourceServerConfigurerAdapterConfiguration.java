@@ -74,13 +74,17 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
         AntPathRequestMatcher patchcaAnt = new AntPathRequestMatcher(patchcaDefaultProperties.getUrl(), HttpMethod.GET.toString());
         // 登录请求（POST）不需要授权
         AntPathRequestMatcher loginAnt = new AntPathRequestMatcher("/login", HttpMethod.POST.toString());
-        expressionInterceptUrlRegistry.requestMatchers(patchcaAnt, loginAnt).permitAll();
+        // 登录 Passport Session 不需要授权
+        AntPathRequestMatcher passportSessionIdAnt = new AntPathRequestMatcher("/passport/sessionId");
+        expressionInterceptUrlRegistry.requestMatchers(patchcaAnt, loginAnt, passportSessionIdAnt).permitAll();
 
         // 排除 全自动区分计算机和人类的图灵测试（GET）的地址需要授权
         NegatedRequestMatcher patchcaNegated = new NegatedRequestMatcher(patchcaAnt);
         // 排除 登录请求（POST）的地址需要授权
         NegatedRequestMatcher loginNegated = new NegatedRequestMatcher(loginAnt);
-        expressionInterceptUrlRegistry.requestMatchers(patchcaNegated, loginNegated).authenticated();
+        // 排除 Passport Session 的地址需要授权
+        NegatedRequestMatcher passportNegated = new NegatedRequestMatcher(passportSessionIdAnt);
+        expressionInterceptUrlRegistry.requestMatchers(patchcaNegated, loginNegated, passportNegated).authenticated();
 
         // CSRF Cookie 策略（此模块中在需要单独在此设置）
         http.csrf().csrfTokenRepository(cookieCsrfTokenRepository);
