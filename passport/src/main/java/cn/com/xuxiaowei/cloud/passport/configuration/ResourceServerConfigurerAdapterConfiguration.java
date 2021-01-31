@@ -15,6 +15,7 @@
  */
 package cn.com.xuxiaowei.cloud.passport.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,6 +23,7 @@ import org.springframework.security.config.annotation.web.configurers.Expression
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 /**
  * 资源服务器 配置
@@ -31,6 +33,13 @@ import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
  */
 @Configuration
 public class ResourceServerConfigurerAdapterConfiguration extends ResourceServerConfigurerAdapter {
+
+    private UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource;
+
+    @Autowired
+    public void setUrlBasedCorsConfigurationSource(UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource) {
+        this.urlBasedCorsConfigurationSource = urlBasedCorsConfigurationSource;
+    }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -50,6 +59,9 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/test/1")
                 .access("#oauth2.hasAnyScope('test')");
+
+        // Security CORS 跨域配置
+        http.cors().configurationSource(urlBasedCorsConfigurationSource);
 
     }
 
