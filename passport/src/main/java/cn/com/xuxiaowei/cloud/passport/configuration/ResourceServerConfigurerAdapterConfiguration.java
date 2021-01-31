@@ -48,11 +48,15 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
 
         // 登录请求（POST）不需要授权
         AntPathRequestMatcher loginAnt = new AntPathRequestMatcher("/login", HttpMethod.POST.toString());
-        expressionInterceptUrlRegistry.requestMatchers(loginAnt).permitAll();
+        // Session ID 地址 不需要授权
+        AntPathRequestMatcher sessionIdAnt = new AntPathRequestMatcher("/sessionId");
+        expressionInterceptUrlRegistry.requestMatchers(loginAnt, sessionIdAnt).permitAll();
 
         // 排除 登录请求（POST）的地址需要授权
         NegatedRequestMatcher loginNegated = new NegatedRequestMatcher(loginAnt);
-        expressionInterceptUrlRegistry.requestMatchers(loginNegated).authenticated();
+        // 排除 Session ID 地址 不需要授权
+        NegatedRequestMatcher sessionIdNegated = new NegatedRequestMatcher(sessionIdAnt);
+        expressionInterceptUrlRegistry.requestMatchers(loginNegated, sessionIdNegated).authenticated();
 
         // 添加一个地址及权限（由于优先级的问题，至少存在一个此配置，才能正常配置 Security，否则 Security 无效）
         http.antMatcher("/test/**")
