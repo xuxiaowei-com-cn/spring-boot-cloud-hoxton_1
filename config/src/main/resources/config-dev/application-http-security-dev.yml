@@ -1,0 +1,13 @@
+#
+# HttpSecurity-开发配置（供服务读取）
+http-security:
+  form-login:
+    default:
+      # 登录页面
+      loginPage: http://localhost:30001/#/login
+      # 登录请求
+      loginProcessingUrl: /login
+      # 登录成功
+      successForwardUrl: /login/success
+      # 登录失败
+      failureForwardUrl: /login/failure
