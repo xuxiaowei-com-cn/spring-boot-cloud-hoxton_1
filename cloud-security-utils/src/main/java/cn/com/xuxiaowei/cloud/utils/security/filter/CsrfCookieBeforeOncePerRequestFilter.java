@@ -70,10 +70,6 @@ public class CsrfCookieBeforeOncePerRequestFilter extends OncePerRequestFilter {
             // CSRF 请求头的 name
             String headerName = csrfToken.getHeaderName();
 
-            // 请求头中是否包含 CSRF value
-            String headerValue = request.getHeader(headerName);
-
-            if (headerValue == null) {
                 String cookieName = csrfCookieDefaultProperties.getCookieName();
                 Cookie cookie = CookieUtils.getCookie(request, cookieName);
 
@@ -92,10 +88,6 @@ public class CsrfCookieBeforeOncePerRequestFilter extends OncePerRequestFilter {
 
                     return;
                 }
-
-            } else {
-                log.warn("警告，CSRF 参数在 Header 中获取到，这是一个危险操作");
-            }
 
         }
 
