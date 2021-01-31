@@ -20,8 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 请求工具类
@@ -93,6 +92,41 @@ public class RequestUtils {
             }
         }
         return queryString;
+    }
+
+    /**
+     * 获取 Header Map
+     *
+     * @param request 请求
+     * @return 返回 Header Map
+     */
+    public static Map<String, String> getHeaderMap(HttpServletRequest request) {
+        Map<String, String> map = new HashMap<>(8);
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            String headerValue = request.getHeader(headerName);
+            map.put(headerName, headerValue);
+        }
+        return map;
+    }
+
+    /**
+     * 获取 Headers Map
+     *
+     * @param request 请求
+     * @return 返回 Header Map
+     */
+    public static Map<String, List<String>> getHeadersMap(HttpServletRequest request) {
+        Map<String, List<String>> map = new HashMap<>(8);
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            Enumeration<String> headerValues = request.getHeaders(headerName);
+            List<String> headerValuesList = Collections.list(headerValues);
+            map.put(headerName, headerValuesList);
+        }
+        return map;
     }
 
 }
