@@ -16,6 +16,7 @@
 package cn.com.xuxiaowei.cloud.ui.passport.controller;
 
 import cn.com.xuxiaowei.cloud.ui.passport.hystrix.PassportHystrixService;
+import cn.com.xuxiaowei.cloud.utils.http.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,8 +53,8 @@ public class LoginRestController {
      * @return 返回 登录结果
      */
     @PostMapping("/login")
-    public String index(HttpServletRequest request, HttpServletResponse response,
-                        String username, String password, Boolean rememberMe) {
+    public Response index(HttpServletRequest request, HttpServletResponse response,
+                          String username, String password, Boolean rememberMe) {
         return passportHystrixService.login(username, password, rememberMe);
     }
 

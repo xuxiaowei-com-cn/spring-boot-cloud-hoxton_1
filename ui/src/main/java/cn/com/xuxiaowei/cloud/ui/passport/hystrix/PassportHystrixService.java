@@ -17,7 +17,6 @@ package cn.com.xuxiaowei.cloud.ui.passport.hystrix;
 
 import cn.com.xuxiaowei.cloud.ui.passport.feign.PassportService;
 import cn.com.xuxiaowei.cloud.utils.http.Response;
-import com.alibaba.fastjson.JSON;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,15 +48,15 @@ public class PassportHystrixService {
      * @return 返回 登录模块 登录页面
      */
     @HystrixCommand(fallbackMethod = "loginFallback")
-    public String login(String username, String password, Boolean rememberMe) {
+    public Response login(String username, String password, Boolean rememberMe) {
         return passportService.login(username, password, rememberMe);
     }
 
-    public String loginFallback(String username, String password, Boolean rememberMe) {
+    public Response loginFallback(String username, String password, Boolean rememberMe) {
         Response response = new Response();
         response.setCode("A001");
         response.setMsg("登录模块异常");
-        return JSON.toJSONString(response);
+        return response;
     }
 
 }
