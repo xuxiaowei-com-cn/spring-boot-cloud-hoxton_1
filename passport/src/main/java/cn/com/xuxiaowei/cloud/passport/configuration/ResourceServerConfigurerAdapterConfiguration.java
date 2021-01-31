@@ -59,10 +59,10 @@ public class ResourceServerConfigurerAdapterConfiguration extends ResourceServer
         expressionInterceptUrlRegistry.requestMatchers(loginNegated, sessionIdNegated).authenticated();
 
         // 添加一个地址及权限（由于优先级的问题，至少存在一个此配置，才能正常配置 Security，否则 Security 无效）
-        http.antMatcher("/test/**")
+        http.antMatcher("/test-scope/**")
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/test/1")
-                .access("#oauth2.hasAnyScope('test')");
+                .antMatchers(HttpMethod.GET, "/test-scope/1")
+                .access("#oauth2.hasAnyScope('test-scope_1')");
 
         // Security CORS 跨域配置
         http.cors().configurationSource(urlBasedCorsConfigurationSource);
