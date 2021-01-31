@@ -23,12 +23,11 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
  * UI(Ribbon、Feign)(界面模块) 程序执行入口
  * <p>
- * 通过 {@link EnableResourceServer} 开启资源保护
+ * 通过 {@link EnableResourceServer} 开启资源保护（暂时禁用）
  * 通过 {@link EnableEurekaClient} 开启 Eureka 客户端。告诉服务，它应该使用 Eureka 服务发现代理注册本身，并且服务调用是使用服务发现来“查找”远程服务的位置的。
  * 通过 {@link EnableFeignClients} 开启 feign 客户端支持
  * 通过 {@link EnableCircuitBreaker} 开启 CircuitBreaker 的支持。使服务能够使用 Hystrix 和 Ribbon 库。
@@ -40,7 +39,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  * @since 0.0.1
  */
 @EnableWebSecurity
-@EnableResourceServer
 @EnableEurekaClient
 @EnableFeignClients
 @EnableCircuitBreaker
